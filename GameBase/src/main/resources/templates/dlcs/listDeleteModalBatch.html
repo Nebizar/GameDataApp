@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="dlc-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('DLCsCollectionThymeleafController')},itemLink=${@linkBuilder.of('DLCsItemThymeleafController')}">
+    <table id="dlc-entity-table-items-to-remove-batch" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="games" data-th-text="#{label_dlc_games}">games</th>
+          <th data-data="name" data-th-text="#{label_dlc_name}">name</th>
+          <th data-data="rel_date" data-th-text="#{label_dlc_rel_date}">rel_date</th>
+          <th data-data="price" data-th-text="#{label_dlc_price}">price</th>
+          <th data-data="description" data-th-text="#{label_dlc_description}">description</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>games</td>
+          <td>name</td>
+          <td>rel_date</td>
+          <td>price</td>
+          <td>description</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

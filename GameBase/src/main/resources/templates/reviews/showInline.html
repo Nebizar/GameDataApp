@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_review})}|">Show Review - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${review}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="review-reviewer-field" data-z="9cac9583">
+            	      <strong data-th-text="#{label_review_reviewer}">reviewer</strong>
+                    <span data-th-text="*{{reviewer}}">reviewerValue</span>
+         	        </li>
+                  <li id="review-user_score-field" data-z="b9c53563">
+            	      <strong data-th-text="#{label_review_user_score}">user_score</strong>
+                    <span data-th-text="*{{user_score}}">user_scoreValue</span>
+         	        </li>
+                  <li id="review-crit_score-field" data-z="48879783">
+            	      <strong data-th-text="#{label_review_crit_score}">crit_score</strong>
+                    <span data-th-text="*{{crit_score}}">crit_scoreValue</span>
+         	        </li>
+                  <li id="review-gameplay-field" data-z="834d1563">
+            	      <strong data-th-text="#{label_review_gameplay}">gameplay</strong>
+                    <span data-th-text="*{{gameplay}}">gameplayValue</span>
+         	        </li>
+                  <li id="review-graphics-field" data-z="32db1cc3">
+            	      <strong data-th-text="#{label_review_graphics}">graphics</strong>
+                    <span data-th-text="*{{graphics}}">graphicsValue</span>
+         	        </li>
+                  <li id="review-audio-field" data-z="da6afa5b">
+            	      <strong data-th-text="#{label_review_audio}">audio</strong>
+                    <span data-th-text="*{{audio}}">audioValue</span>
+         	        </li>
+                  <li id="review-games-field" data-z="ff53c8fb">
+            	      <strong data-th-text="#{label_review_games}">games</strong>
+                    <span data-th-text="*{{games}}">gamesValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

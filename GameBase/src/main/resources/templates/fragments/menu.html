@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Page menu</title>
+  </head>
+  <body id="body">
+    <!--
+    Only the internal content of the following div is included within
+    the template, in menu fragment
+    -->
+    <nav class="navbar navbar-default navbar-static-top" data-th-fragment="menu">
+
+         <div class="container">
+
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainnav" aria-expanded="false">
+                <span class="sr-only">Menu</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <!-- Brand logo -->
+              <div class="organization-logo navbar-brand">
+                <a title="gamebase" href="/" data-th-href="@{/}">
+                  <img alt="gamebase" data-th-src="@{/public/img/logo.png}" src="../../static/public/img/logo.png" />
+                </a>
+              </div>
+              <!-- Name application -->
+              <div class="application-name navbar-brand hidden-xs">
+                <a data-th-title="#{label_goHome}" href="/" data-th-href="@{/}">gamebase</a>
+              </div>
+
+            </div><!-- /navbar-header -->
+
+            <div id="mainnav" class="navbar-collapse collapse">
+
+              <ul class="nav navbar-nav" id="entitiesMenuEntries">
+                <li class="dropdown" id="dlc-entry" data-z="7e8e6156">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_dlc})}">DLC<span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+	                   <li><a href="/dlcs/create-form" data-th-href="@{/dlcs/create-form}" data-th-utext="#{label_create_entity(#{label_dlc})}">Create DLC</a></li>
+	                  <li><a href="/dlcs" data-th-href="@{/dlcs}" data-th-utext="#{label_list_entity(#{label_dlc_plural})}">List DLC</a></li>
+                 </ul>
+                </li>
+                <li class="dropdown" id="devstudio-entry" data-z="3d271836">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_devstudio})}">DevStudio<span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+	                   <li><a href="/devstudios/create-form" data-th-href="@{/devstudios/create-form}" data-th-utext="#{label_create_entity(#{label_devstudio})}">Create DevStudio</a></li>
+	                  <li><a href="/devstudios" data-th-href="@{/devstudios}" data-th-utext="#{label_list_entity(#{label_devstudio_plural})}">List DevStudio</a></li>
+                 </ul>
+                </li>
+                <li class="dropdown" id="developers-entry" data-z="a289e0a8">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_developers})}">Developers<span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+	                   <li><a href="/developerss/create-form" data-th-href="@{/developerss/create-form}" data-th-utext="#{label_create_entity(#{label_developers})}">Create Developers</a></li>
+	                  <li><a href="/developerss" data-th-href="@{/developerss}" data-th-utext="#{label_list_entity(#{label_developers_plural})}">List Developers</a></li>
+                 </ul>
+                </li>
+                <li class="dropdown" id="gameplat-entry" data-z="94073f08">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_gameplat})}">GamePlat<span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+	                   <li><a href="/gameplats/create-form" data-th-href="@{/gameplats/create-form}" data-th-utext="#{label_create_entity(#{label_gameplat})}">Create GamePlat</a></li>
+	                  <li><a href="/gameplats" data-th-href="@{/gameplats}" data-th-utext="#{label_list_entity(#{label_gameplat_plural})}">List GamePlat</a></li>
+                 </ul>
+                </li>
+                <li class="dropdown" id="games-entry" data-z="6b1d15d7">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_games})}">Games<span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+	                   <li><a href="/gameses/create-form" data-th-href="@{/gameses/create-form}" data-th-utext="#{label_create_entity(#{label_games})}">Create Games</a></li>
+	                  <li><a href="/gameses" data-th-href="@{/gameses}" data-th-utext="#{label_list_entity(#{label_games_plural})}">List Games</a></li>
+                 </ul>
+                </li>
+                <li class="dropdown" id="platform-entry" data-z="33ac52e8">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_platform})}">Platform<span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+	                   <li><a href="/platforms/create-form" data-th-href="@{/platforms/create-form}" data-th-utext="#{label_create_entity(#{label_platform})}">Create Platform</a></li>
+	                  <li><a href="/platforms" data-th-href="@{/platforms}" data-th-utext="#{label_list_entity(#{label_platform_plural})}">List Platform</a></li>
+                 </ul>
+                </li>
+                <li class="dropdown" id="publishers-entry" data-z="98b4e8a8">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_publishers})}">Publishers<span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+	                   <li><a href="/publisherss/create-form" data-th-href="@{/publisherss/create-form}" data-th-utext="#{label_create_entity(#{label_publishers})}">Create Publishers</a></li>
+	                  <li><a href="/publisherss" data-th-href="@{/publisherss}" data-th-utext="#{label_list_entity(#{label_publishers_plural})}">List Publishers</a></li>
+                 </ul>
+                </li>
+                <li class="dropdown" id="review-entry" data-z="4c700928">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_review})}">Review<span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+	                   <li><a href="/reviews/create-form" data-th-href="@{/reviews/create-form}" data-th-utext="#{label_create_entity(#{label_review})}">Create Review</a></li>
+	                  <li><a href="/reviews" data-th-href="@{/reviews}" data-th-utext="#{label_list_entity(#{label_review_plural})}">List Review</a></li>
+                 </ul>
+                </li>
+                <li class="dropdown" id="reviewer-entry" data-z="bc76cae8">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_reviewer})}">Reviewer<span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+	                   <li><a href="/reviewers/create-form" data-th-href="@{/reviewers/create-form}" data-th-utext="#{label_create_entity(#{label_reviewer})}">Create Reviewer</a></li>
+	                  <li><a href="/reviewers" data-th-href="@{/reviewers}" data-th-utext="#{label_list_entity(#{label_reviewer_plural})}">List Reviewer</a></li>
+                 </ul>
+                </li>
+                <li class="dropdown" id="type-entry" data-z="b10d3b68">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_type})}">Type<span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+	                   <li><a href="/types/create-form" data-th-href="@{/types/create-form}" data-th-utext="#{label_create_entity(#{label_type})}">Create Type</a></li>
+	                  <li><a href="/types" data-th-href="@{/types}" data-th-utext="#{label_list_entity(#{label_type_plural})}">List Type</a></li>
+                 </ul>
+                </li>
+              </ul>
+
+              <!-- Language select -->
+              <ul class="nav navbar-nav navbar-right upper-nav languages" data-th-replace="~{fragments/languages :: languages}">
+                <!-- Content replaced by the session template fragment language.html
+                -->
+                <span>Language data</span>
+              </ul>
+
+
+
+              <!-- User menu links -->
+              <ul class="nav navbar-nav navbar-right upper-nav links" data-th-replace="~{fragments/session-links :: links}">
+                <!-- Content replaced by the links template fragment session-links.html
+                -->
+                <span>User session data</span>
+              </ul>
+           </div>
+
+          </div>
+    </nav>
+
+    <!--
+    Only the internal content of the following div is included within
+    the template, in menu-languages fragment
+    -->
+    <nav class="navbar navbar-default navbar-static-top" data-th-fragment="menu-languages">
+
+         <div class="container">
+
+            <div class="navbar-header">
+
+              <!-- Brand logo -->
+              <div class="organization-logo navbar-brand">
+                <a title="gamebase" href="/" data-th-href="@{/}">
+                  <img alt="gamebase" data-th-src="@{/public/img/logo.png}" src="../../static/public/img/logo.png" />
+                </a>
+              </div>
+              <!-- Name application -->
+              <div class="application-name navbar-brand hidden-xs">
+                <a data-th-title="#{label_goHome}" href="/" data-th-href="@{/}">gamebase</a>
+              </div>
+
+            </div><!-- /navbar-header -->
+
+            <div id="mainnav" class="navbar-collapse collapse">
+
+              <!-- Language select -->
+              <ul class="nav navbar-nav navbar-right upper-nav languages" data-th-replace="~{fragments/languages :: languages}">
+                <!-- Content replaced by the session template fragment language.html
+                -->
+                <span>Language data</span>
+              </ul>
+
+           </div>
+
+          </div>
+    </nav>
+
+  </body>
+</html>

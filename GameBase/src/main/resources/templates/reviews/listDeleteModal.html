@@ -1,0 +1,24 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="review-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('ReviewsCollectionThymeleafController')},itemLink=${@linkBuilder.of('ReviewsItemThymeleafController')}">
+    <table id="review-entity-table-item-to-remove" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="reviewer" data-th-text="#{label_review_reviewer}">reviewer</th>
+          <th data-data="user_score" data-th-text="#{label_review_user_score}">user_score</th>
+          <th data-data="crit_score" data-th-text="#{label_review_crit_score}">crit_score</th>
+          <th data-data="gameplay" data-th-text="#{label_review_gameplay}">gameplay</th>
+          <th data-data="graphics" data-th-text="#{label_review_graphics}">graphics</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>reviewer</td>
+          <td>user_score</td>
+          <td>crit_score</td>
+          <td>gameplay</td>
+          <td>graphics</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

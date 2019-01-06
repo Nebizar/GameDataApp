@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_developers})}|">Show Developers - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${developers}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_developers})}">Show Developers</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_developers})}">Developers data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="developers-devstudio-field" data-z="a778540a">
+            	      <strong data-th-text="#{label_developers_devstudio}">devstudio</strong>
+                    <span data-th-text="*{{devstudio}}">devstudioValue</span>
+         	        </li>
+                  <li id="developers-name-field" data-z="96201b14">
+            	      <strong data-th-text="#{label_developers_name}">name</strong>
+                    <span data-th-text="*{{name}}">nameValue</span>
+         	        </li>
+                  <li id="developers-surname-field" data-z="603304ca">
+            	      <strong data-th-text="#{label_developers_surname}">surname</strong>
+                    <span data-th-text="*{{surname}}">surnameValue</span>
+         	        </li>
+                  <li id="developers-status-field" data-z="962858f4">
+            	      <strong data-th-text="#{label_developers_status}">status</strong>
+                    <span data-th-text="*{{status}}">statusValue</span>
+         	        </li>
+                  <li id="developers-salary-field" data-z="9af07df4">
+            	      <strong data-th-text="#{label_developers_salary}">salary</strong>
+                    <span data-th-text="*{{salary}}">salaryValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="Developers_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('DeveloperssItemThymeleafController').to('editForm').with('developers', developers.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="Developers_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('DeveloperssCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

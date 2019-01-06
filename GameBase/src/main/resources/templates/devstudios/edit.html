@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-layout}">
+  <head id="head">
+
+    <title data-th-text="#{label_edit_entity(#{label_devstudio})}">
+    Edit DevStudio - Spring Roo application</title>
+
+    <!-- DateTimePicker -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.min.css" data-th-href="@{/webjars/datetimepicker/2.5.4/build/jquery.datetimepicker.min.css}" />
+
+  </head>
+  
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!-- CONTAINER -->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content">
+
+        <div class="container-fluid content" data-th-with="collectionLink=${@linkBuilder.of('DevStudiosCollectionThymeleafController')},itemLink=${@linkBuilder.of('DevStudiosItemThymeleafController')}">
+
+          <h1 data-th-text="#{label_edit_entity(#{label_devstudio})}">Edit DevStudio</h1>
+
+          <!-- FORM -->
+          <form class="form-horizontal validate" method="POST" data-th-object="${devStudio}" data-th-action="${itemLink.to('update').with('devStudio', devStudio.id)}">
+            <input type="hidden" name="_method" value="PUT" />
+            	<input type="hidden" name="version" data-th-value="*{version}" />
+
+            <!-- CONCURRENCY CONTROL -->
+            <div data-th-replace="~{fragments/concurrency-control :: concurrency-control(editFormUrl = ${itemLink.to('editForm').with('devStudio', devStudio.id)})}"></div>
+            <!-- /CONCURRENCY CONTROL -->
+
+             <fieldset id="containerFields">
+              <legend class="sr-only" data-th-text="#{label_data_entity(#{label_devstudio})}">DevStudio data </legend>
+
+<div class="form-group has-error has-feedback" data-z="b2889ca0" id="devstudio-name-field" data-th-classappend="${#fields.hasErrors('name')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="name" class="col-md-3 control-label" data-th-text="#{label_devstudio_name}">name</label>
+  <div class="col-md-6">
+    <input id="name" name="name" data-th-value="*{{name}}" type="text" class="form-control" placeholder="name" data-th-placeholder="#{label_devstudio_name}" data-toggle="tooltip" aria-describedby="nameStatus" required="required" />
+      <span data-th-classappend="${#fields.hasErrors('name')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('name')}" aria-hidden="true"></span>
+      <span id="name-error" class="help-block" data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="7b909c5e" id="devstudio-country-field" data-th-classappend="${#fields.hasErrors('country')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="country" class="col-md-3 control-label" data-th-text="#{label_devstudio_country}">country</label>
+  <div class="col-md-6">
+    <input id="country" name="country" data-th-value="*{{country}}" type="text" class="form-control" placeholder="country" data-th-placeholder="#{label_devstudio_country}" data-toggle="tooltip" aria-describedby="countryStatus" required="required" />
+      <span data-th-classappend="${#fields.hasErrors('country')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('country')}" aria-hidden="true"></span>
+      <span id="country-error" class="help-block" data-th-if="${#fields.hasErrors('country')}" data-th-errors="*{country}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="3407a40" id="devstudio-main_loc-field" data-th-classappend="${#fields.hasErrors('main_loc')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="main_loc" class="col-md-3 control-label" data-th-text="#{label_devstudio_main_loc}">main_loc</label>
+  <div class="col-md-6">
+    <input id="main_loc" name="main_loc" data-th-value="*{{main_loc}}" type="text" class="form-control" placeholder="main_loc" data-th-placeholder="#{label_devstudio_main_loc}" data-toggle="tooltip" aria-describedby="main_locStatus" required="required" />
+      <span data-th-classappend="${#fields.hasErrors('main_loc')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('main_loc')}" aria-hidden="true"></span>
+      <span id="main_loc-error" class="help-block" data-th-if="${#fields.hasErrors('main_loc')}" data-th-errors="*{main_loc}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="c87deb80" id="devstudio-devs_count-field" data-th-classappend="${#fields.hasErrors('devs_count')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="devs_count" class="col-md-3 control-label" data-th-text="#{label_devstudio_devs_count}">devs_count</label>
+  <div class="col-md-3">
+    <input id="devs_count" name="devs_count" data-th-value="*{{devs_count}}" type="text" class="form-control inputmask" placeholder="devs_count" data-th-placeholder="#{label_devstudio_devs_count}" data-toggle="tooltip" aria-describedby="devs_countStatus" data-inputmask-alias="numeric" data-inputmask-digits="0" />
+      <span data-th-classappend="${#fields.hasErrors('devs_count')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('devs_count')}" aria-hidden="true"></span>
+      <span id="devs_count-error" class="help-block" data-th-if="${#fields.hasErrors('devs_count')}" data-th-errors="*{devs_count}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="bf69ea3e" id="devstudio-valueof-field" data-th-classappend="${#fields.hasErrors('valueOf')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="valueOf" class="col-md-3 control-label" data-th-text="#{label_devstudio_valueof}">valueOf</label>
+  <div class="col-md-3">
+    <input id="valueOf" name="valueOf" data-th-value="*{{valueOf}}" type="text" class="form-control inputmask" placeholder="valueOf" data-th-placeholder="#{label_devstudio_valueof}" data-toggle="tooltip" aria-describedby="valueOfStatus" data-inputmask-alias="numeric" data-inputmask-digits="2" />
+      <span data-th-classappend="${#fields.hasErrors('valueOf')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('valueOf')}" aria-hidden="true"></span>
+      <span id="valueOf-error" class="help-block" data-th-if="${#fields.hasErrors('valueOf')}" data-th-errors="*{valueOf}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="9e8f6260" id="devstudio-publishers-field" data-th-classappend="${#fields.hasErrors('publishers')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('PublisherssCollectionThymeleafController')}">
+    <label for="publishers" class="col-md-3 control-label" data-th-text="#{label_devstudio_publishers}">Publishers</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{publishers}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{publishers} == null" data-th-value="*{publishers.id}" data-th-text="*{{publishers}}" selected="selected">Publishers</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('publishers')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('publishers')}" aria-hidden="true"></span>
+      <span id="publishers-error" class="help-block" data-th-if="${#fields.hasErrors('publishers')}" data-th-errors="*{publishers}">Error message.</span>
+    </div>
+</div>
+             </fieldset>
+
+
+              <!-- buttons form -->
+              <div class="form-group">
+                <div class="col-md-12">
+                  <div class="pull-left">
+                    <button type="reset" class="btn btn-default" onclick="location.href='list.html'" data-th-onclick="'location.href=\'' + @{${collectionLink.to('list')}} + '\''" data-th-text="#{label_reset}">Cancel</button>
+                  </div>
+                  <div class="pull-right">
+                    <button type="submit" class="btn btn-primary" data-th-text="#{label_save}">Save</button>
+                  </div>
+                </div>
+              </div>
+
+          </form>
+          <!-- /FORM -->
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+   </div>
+   <!-- /CONTAINER -->
+
+   <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+   </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+
+    <!-- DateTimePicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.min.js" data-th-src="@{/webjars/datetimepicker/build/jquery.datetimepicker.full.min.js}"></script>
+    <script src="../../static/public/js/datetimepicker-defaults.js" data-th-src="@{/public/js/datetimepicker-defaults.js}"></script>
+
+    <!-- jquery.inputmask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.1/jquery.inputmask.bundle.min.js" data-th-src="@{/webjars/jquery.inputmask/min/jquery.inputmask.bundle.min.js}"></script>
+    <script type="text/javascript" data-th-inline="javascript">
+      (function(jQuery) {
+        jQuery(document).ready(
+      	  function() {
+      	    Inputmask.extendAliases({
+      	      'numeric' : {
+      	         'groupSeparator' : /*[[#{label_inputmask_groupSeparator}]]*/'.',
+      	         'radixPoint' : /*[[#{label_inputmask_radixPoint}]]*/','
+      	       },
+      	       'currency' : {
+      	          'prefix' : /*[[#{label_inputmask_prefix}]]*/'',
+      	          'suffix' : /*[[#{label_inputmask_suffix}]]*/' €'
+      	        }
+      	    });
+      	 });
+       })(jQuery);
+    </script>
+    <script src="../../static/public/js/inputmask-defaults.js" data-th-src="@{/public/js/inputmask-defaults.js}"></script>
+
+    <!-- JQuery Validation -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js" data-th-src="@{/webjars/jquery-validation/dist/jquery.validate.min.js}">
+      </script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.min.js" data-th-src="@{/webjars/jquery-validation/dist/additional-methods.min.js}">
+      </script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/localization/messages_es.js" data-th-src="@{/webjars/jquery-validation/src/localization/messages_}+${#locale.language}+'.js'" data-th-if="${#locale.language} != 'en'">
+      </script>
+    <script src="../../static/public/js/validation-defaults.js" data-th-src="@{/public/js/validation-defaults.js}">
+      </script>
+    <!-- Concurrency control management -->
+    <script data-th-src="@{/public/js/concurrency-control.js}"></script>
+    <script type="text/javascript" data-th-inline="javascript">
+      (function(jQuery) {
+         jQuery(document).ready(function() {
+      	   jQuery.extend( jQuery.validator.messages, {
+      	     'dateformat' : /*[[#{error_invalid_date}]]*/ 'Please enter a correct date/time',
+      	     'inputmask': /*[[#{error_invalid_maskValue}]]*/ 'Please enter a valid value',
+      	   });
+      	 });
+      })(jQuery);
+      </script>
+
+    </div>
+
+  </body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_devstudio})}|">Show DevStudio - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${devStudio}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="devstudio-name-field" data-z="b2889ca0">
+            	      <strong data-th-text="#{label_devstudio_name}">name</strong>
+                    <span data-th-text="*{{name}}">nameValue</span>
+         	        </li>
+                  <li id="devstudio-country-field" data-z="7b909c5e">
+            	      <strong data-th-text="#{label_devstudio_country}">country</strong>
+                    <span data-th-text="*{{country}}">countryValue</span>
+         	        </li>
+                  <li id="devstudio-main_loc-field" data-z="3407a40">
+            	      <strong data-th-text="#{label_devstudio_main_loc}">main_loc</strong>
+                    <span data-th-text="*{{main_loc}}">main_locValue</span>
+         	        </li>
+                  <li id="devstudio-devs_count-field" data-z="c87deb80">
+            	      <strong data-th-text="#{label_devstudio_devs_count}">devs_count</strong>
+                    <span data-th-text="*{{devs_count}}">devs_countValue</span>
+         	        </li>
+                  <li id="devstudio-valueof-field" data-z="bf69ea3e">
+            	      <strong data-th-text="#{label_devstudio_valueof}">valueOf</strong>
+                    <span data-th-text="*{{valueOf}}">valueOfValue</span>
+         	        </li>
+                  <li id="devstudio-publishers-field" data-z="9e8f6260">
+            	      <strong data-th-text="#{label_devstudio_publishers}">publishers</strong>
+                    <span data-th-text="*{{publishers}}">publishersValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

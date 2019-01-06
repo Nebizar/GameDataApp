@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+  <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_dlc})}|">Show DLC - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-layout-fragment="content" data-th-object="${dLC}">
+        <div class="container-fluid content">
+
+          <!-- CONTENT -->
+          <h1 data-th-text="#{label_show_entity(#{label_dlc})}">Show DLC</h1>
+
+            <div id="mainEntityFieldSet">
+              <h2 data-th-text="#{label_data_entity(#{label_dlc})}">DLC data</h2>
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="dlc-games-field" data-z="b6ce324e">
+            	      <strong data-th-text="#{label_dlc_games}">games</strong>
+                    <span data-th-text="*{{games}}">gamesValue</span>
+         	        </li>
+                  <li id="dlc-name-field" data-z="e8f03f10">
+            	      <strong data-th-text="#{label_dlc_name}">name</strong>
+                    <span data-th-text="*{{name}}">nameValue</span>
+         	        </li>
+                  <li id="dlc-rel_date-field" data-z="e5fe5170">
+            	      <strong data-th-text="#{label_dlc_rel_date}">rel_date</strong>
+                    <span data-th-text="*{{rel_date}}">rel_dateValue</span>
+         	        </li>
+                  <li id="dlc-price-field" data-z="bff8814e">
+            	      <strong data-th-text="#{label_dlc_price}">price</strong>
+                    <span data-th-text="*{{price}}">priceValue</span>
+         	        </li>
+                  <li id="dlc-description-field" data-z="c370efae">
+            	      <strong data-th-text="#{label_dlc_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+
+          <div class="clearfix">
+            <div class="pull-right">
+             <a id="DLC_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${@linkBuilder.of('DLCsItemThymeleafController').to('editForm').with('dLC', dLC.id)}" data-th-text="#{label_edit}">Edit</a>
+            </div>
+          </div>
+
+
+          <div class="clearfix">
+            <div class="pull-left">
+              <a id="DLC_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${@linkBuilder.of('DLCsCollectionThymeleafController').to('list')}">
+  	             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  	             <span data-th-text="#{label_back}">Back</span>
+  	          </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

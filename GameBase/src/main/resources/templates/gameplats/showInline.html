@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_gameplat})}|">Show GamePlat - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${gamePlat}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="gameplat-games-field" data-z="2bb304d2">
+            	      <strong data-th-text="#{label_gameplat_games}">games</strong>
+                    <span data-th-text="*{{games}}">gamesValue</span>
+         	        </li>
+                  <li id="gameplat-price-field" data-z="34dd53d2">
+            	      <strong data-th-text="#{label_gameplat_price}">price</strong>
+                    <span data-th-text="*{{price}}">priceValue</span>
+         	        </li>
+                  <li id="gameplat-sales-field" data-z="bae96772">
+            	      <strong data-th-text="#{label_gameplat_sales}">sales</strong>
+                    <span data-th-text="*{{sales}}">salesValue</span>
+         	        </li>
+                  <li id="gameplat-platform-field" data-z="8cafa08c">
+            	      <strong data-th-text="#{label_gameplat_platform}">platform</strong>
+                    <span data-th-text="*{{platform}}">platformValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

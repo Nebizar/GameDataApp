@@ -1,0 +1,89 @@
+jpa setup --provider HIBERNATE --database H2_IN_MEMORY
+
+entity jpa --class ~.structures.Reviewer --entityFormatExpression "#{nick}"
+entity jpa --class ~.structures.Review --entityFormatExpression "#{ID}, #{game}"
+entity jpa --class ~.structures.Games --entityFormatExpression "#{title}"
+entity jpa --class ~.structures.DLC --entityFormatExpression "#{name}, #{game}"
+entity jpa --class ~.structures.Type --entityFormatExpression "#{name}"
+entity jpa --class ~.structures.DevStudio --entityFormatExpression "#{name}"
+entity jpa --class ~.structures.Developers --entityFormatExpression "#{name}, #{surname}"
+entity jpa --class ~.structures.Publishers --entityFormatExpression "#{name}"
+entity jpa --class ~.structures.GamePlat --entityFormatExpression "#{game}, #{platform}"
+entity jpa --class ~.structures.Platform --entityFormatExpression "#{name}"
+
+focus --class ~.structures.Reviewer
+field string --fieldName nick --notNull
+field boolean --fieldName crit --notNull
+field string --fieldName af
+field set --fieldName reviews --type ~.structures.Review --mappedBy reviewer --notNull
+
+focus --class ~.structures.Review
+field number user_score --type java.lang.Float --notNull
+field number crit_score --type java.lang.Float --notNull
+field number gameplay --type java.lang.Float --notNull
+field number graphics --type java.lang.Float --notNull
+field number audio --type java.lang.Float --notNull
+
+focus --class ~.structures.Games
+field string --fieldName title --notNull
+field string --fieldName desccription
+field number pegi --type java.lang.Integer --notNull
+field date rel_date --type java.util.Calendar --persistenceType JPA_TIMESTAMP --notNull
+field number budget --type java.lang.Float
+field set --fieldName dlcs --type ~.structures.DLC --mappedBy games --notNull
+field set --fieldName reviews --type ~.structures.Review --mappedBy games --notNull
+field set --fieldName platforms --type ~.structures.GamePlat --mappedBy games --notNull
+
+focus --class ~.structures.DLC
+field string --fieldName name --notNull
+field date rel_date --type java.util.Calendar --persistenceType JPA_TIMESTAMP --notNull
+field number price --type java.lang.Float
+field string --fieldName description
+
+focus --class ~.structures.Type
+field string --fieldName name --notNull
+field set --fieldName games --type ~.structures.Games --mappedBy type --notNull
+
+focus --class ~.structures.DevStudio
+field string --fieldName name --notNull
+field string --fieldName country --notNull
+field string --fieldName main_loc --notNull
+field number devs_count --type java.lang.Integer
+field number valueOf --type java.lang.Float
+field set --fieldName games --type ~.structures.Games --mappedBy devstudio --notNull
+field set --fieldName developers --type ~.structures.Developers --mappedBy devstudio --notNull
+
+focus --class ~.structures.Developers
+field string --fieldName name --notNull
+field string --fieldName surname --notNull
+field string --fieldName status
+field number salary --type java.lang.Float
+
+focus --class ~.structures.Publishers
+field string --fieldName name --notNull
+field number valueOf --type java.lang.Float
+field string --fieldName main_loc
+field set --fieldName dev_studios --type ~.structures.DevStudio --mappedBy publishers --notNull
+
+focus --class ~.structures.GamePlat
+field number price --type java.lang.Float
+field number sales --type java.lang.Integer
+
+focus --class ~.structures.Platform
+field string --fieldName name --notNull
+field string --fieldName producent --notNull
+field number sales --type java.lang.Integer
+field date premiere --type java.util.Calendar --persistenceType JPA_TIMESTAMP --notNull
+field set --fieldName games --type ~.structures.GamePlat --mappedBy platform --notNull
+
+repository jpa --all
+
+service --all
+web mvc setup
+web mvc view setup --type THYMELEAF
+web mvc controller --all --responseType THYMELEAF
+web mvc detail --all --responseType THYMELEAF --views show
+web mvc templates setup --type THYMELEAF
+web mvc finder --all --responseType THYMELEAF
+
+push-in --all --force

@@ -4,9 +4,9 @@
 package pl.put.poznan.gamebase.web;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import pl.put.poznan.gamebase.structures.Games;
+import pl.put.poznan.gamebase.structures.Game;
 import pl.put.poznan.gamebase.structures.Reviewer;
-import pl.put.poznan.gamebase.web.GamesDeserializer;
+import pl.put.poznan.gamebase.web.GameDeserializer;
 import pl.put.poznan.gamebase.web.ReviewJsonMixin;
 import pl.put.poznan.gamebase.web.ReviewerDeserializer;
 
@@ -16,8 +16,8 @@ privileged aspect ReviewJsonMixin_Roo_JSONMixin {
      * TODO Auto-generated attribute documentation
      * 
      */
-    @JsonDeserialize(using = GamesDeserializer.class)
-    private Games ReviewJsonMixin.games;
+    @JsonDeserialize(using = GameDeserializer.class)
+    private Game ReviewJsonMixin.game;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -29,19 +29,19 @@ privileged aspect ReviewJsonMixin_Roo_JSONMixin {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @return Games
+     * @return Game
      */
-    public Games ReviewJsonMixin.getGames() {
-        return games;
+    public Game ReviewJsonMixin.getGame() {
+        return game;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param games
+     * @param game
      */
-    public void ReviewJsonMixin.setGames(Games games) {
-        this.games = games;
+    public void ReviewJsonMixin.setGame(Game game) {
+        this.game = game;
     }
     
     /**

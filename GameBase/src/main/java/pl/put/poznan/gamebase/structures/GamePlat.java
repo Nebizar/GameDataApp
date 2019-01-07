@@ -44,7 +44,7 @@ public class GamePlat {
      */
     @ManyToOne(fetch = FetchType.LAZY)
     @EntityFormat
-    private Games games;
+    private Game game;
 
     /**
      * TODO Auto-generated attribute documentation

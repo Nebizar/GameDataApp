@@ -8,8 +8,8 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import pl.put.poznan.gamebase.service.api.GamePlatService;
+import pl.put.poznan.gamebase.structures.Game;
 import pl.put.poznan.gamebase.structures.GamePlat;
-import pl.put.poznan.gamebase.structures.Games;
 import pl.put.poznan.gamebase.structures.Platform;
 
 privileged aspect GamePlatService_Roo_Service {
@@ -104,12 +104,12 @@ privileged aspect GamePlatService_Roo_Service {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param games
+     * @param game
      * @param globalSearch
      * @param pageable
      * @return Page
      */
-    public abstract Page<GamePlat> GamePlatService.findByGames(Games games, GlobalSearch globalSearch, Pageable pageable);
+    public abstract Page<GamePlat> GamePlatService.findByGame(Game game, GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation
@@ -124,10 +124,10 @@ privileged aspect GamePlatService_Roo_Service {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param games
+     * @param game
      * @return Long
      */
-    public abstract long GamePlatService.countByGames(Games games);
+    public abstract long GamePlatService.countByGame(Game game);
     
     /**
      * TODO Auto-generated method documentation

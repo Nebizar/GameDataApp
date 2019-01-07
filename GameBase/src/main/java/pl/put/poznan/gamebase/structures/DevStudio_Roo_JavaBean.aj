@@ -6,9 +6,9 @@ package pl.put.poznan.gamebase.structures;
 import java.util.Objects;
 import java.util.Set;
 import pl.put.poznan.gamebase.structures.DevStudio;
-import pl.put.poznan.gamebase.structures.Developers;
-import pl.put.poznan.gamebase.structures.Games;
-import pl.put.poznan.gamebase.structures.Publishers;
+import pl.put.poznan.gamebase.structures.Developer;
+import pl.put.poznan.gamebase.structures.Game;
+import pl.put.poznan.gamebase.structures.Publisher;
 
 privileged aspect DevStudio_Roo_JavaBean {
     
@@ -157,7 +157,7 @@ privileged aspect DevStudio_Roo_JavaBean {
      * 
      * @return Set
      */
-    public Set<Games> DevStudio.getGames() {
+    public Set<Game> DevStudio.getGames() {
         return this.games;
     }
     
@@ -167,7 +167,7 @@ privileged aspect DevStudio_Roo_JavaBean {
      * @param games
      * @return DevStudio
      */
-    public DevStudio DevStudio.setGames(Set<Games> games) {
+    public DevStudio DevStudio.setGames(Set<Game> games) {
         this.games = games;
         return this;
     }
@@ -177,7 +177,7 @@ privileged aspect DevStudio_Roo_JavaBean {
      * 
      * @return Set
      */
-    public Set<Developers> DevStudio.getDevelopers() {
+    public Set<Developer> DevStudio.getDevelopers() {
         return this.developers;
     }
     
@@ -187,28 +187,28 @@ privileged aspect DevStudio_Roo_JavaBean {
      * @param developers
      * @return DevStudio
      */
-    public DevStudio DevStudio.setDevelopers(Set<Developers> developers) {
+    public DevStudio DevStudio.setDevelopers(Set<Developer> developers) {
         this.developers = developers;
         return this;
     }
     
     /**
-     * Gets publishers value
+     * Gets publisher value
      * 
-     * @return Publishers
+     * @return Publisher
      */
-    public Publishers DevStudio.getPublishers() {
-        return this.publishers;
+    public Publisher DevStudio.getPublisher() {
+        return this.publisher;
     }
     
     /**
-     * Sets publishers value
+     * Sets publisher value
      * 
-     * @param publishers
+     * @param publisher
      * @return DevStudio
      */
-    public DevStudio DevStudio.setPublishers(Publishers publishers) {
-        this.publishers = publishers;
+    public DevStudio DevStudio.setPublisher(Publisher publisher) {
+        this.publisher = publisher;
         return this;
     }
     

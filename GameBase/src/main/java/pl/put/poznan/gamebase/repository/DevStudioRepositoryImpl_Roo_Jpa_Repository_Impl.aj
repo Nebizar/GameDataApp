@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 import pl.put.poznan.gamebase.repository.DevStudioRepositoryImpl;
 import pl.put.poznan.gamebase.structures.DevStudio;
-import pl.put.poznan.gamebase.structures.Publishers;
+import pl.put.poznan.gamebase.structures.Publisher;
 import pl.put.poznan.gamebase.structures.QDevStudio;
 
 privileged aspect DevStudioRepositoryImpl_Roo_Jpa_Repository_Impl {
@@ -55,7 +55,7 @@ privileged aspect DevStudioRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String DevStudioRepositoryImpl.PUBLISHERS = "publishers";
+    public static final String DevStudioRepositoryImpl.PUBLISHER = "publisher";
     
     /**
      * TODO Auto-generated method documentation
@@ -70,7 +70,7 @@ privileged aspect DevStudioRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<DevStudio> query = from(devStudio);
         
-        Path<?>[] paths = new Path<?>[] {devStudio.name,devStudio.country,devStudio.main_loc,devStudio.devs_count,devStudio.valueOf,devStudio.publishers};        
+        Path<?>[] paths = new Path<?>[] {devStudio.name,devStudio.country,devStudio.main_loc,devStudio.devs_count,devStudio.valueOf,devStudio.publisher};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -79,7 +79,7 @@ privileged aspect DevStudioRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(MAIN___LOC, devStudio.main_loc)
 			.map(DEVS___COUNT, devStudio.devs_count)
 			.map(VALUE_OF, devStudio.valueOf)
-			.map(PUBLISHERS, devStudio.publishers);
+			.map(PUBLISHER, devStudio.publisher);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);
@@ -101,7 +101,7 @@ privileged aspect DevStudioRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<DevStudio> query = from(devStudio);
         
-        Path<?>[] paths = new Path<?>[] {devStudio.name,devStudio.country,devStudio.main_loc,devStudio.devs_count,devStudio.valueOf,devStudio.publishers};        
+        Path<?>[] paths = new Path<?>[] {devStudio.name,devStudio.country,devStudio.main_loc,devStudio.devs_count,devStudio.valueOf,devStudio.publisher};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
@@ -113,7 +113,7 @@ privileged aspect DevStudioRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(MAIN___LOC, devStudio.main_loc)
 			.map(DEVS___COUNT, devStudio.devs_count)
 			.map(VALUE_OF, devStudio.valueOf)
-			.map(PUBLISHERS, devStudio.publishers);
+			.map(PUBLISHER, devStudio.publisher);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);
@@ -124,21 +124,21 @@ privileged aspect DevStudioRepositoryImpl_Roo_Jpa_Repository_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param publishers
+     * @param publisher
      * @param globalSearch
      * @param pageable
      * @return Page
      */
-    public Page<DevStudio> DevStudioRepositoryImpl.findByPublishers(Publishers publishers, GlobalSearch globalSearch, Pageable pageable) {
+    public Page<DevStudio> DevStudioRepositoryImpl.findByPublisher(Publisher publisher, GlobalSearch globalSearch, Pageable pageable) {
         
         QDevStudio devStudio = QDevStudio.devStudio;
         
         JPQLQuery<DevStudio> query = from(devStudio);
         
-        Assert.notNull(publishers, "publishers is required");
+        Assert.notNull(publisher, "publisher is required");
         
-        query.where(devStudio.publishers.eq(publishers));
-        Path<?>[] paths = new Path<?>[] {devStudio.name,devStudio.country,devStudio.main_loc,devStudio.devs_count,devStudio.valueOf,devStudio.publishers};        
+        query.where(devStudio.publisher.eq(publisher));
+        Path<?>[] paths = new Path<?>[] {devStudio.name,devStudio.country,devStudio.main_loc,devStudio.devs_count,devStudio.valueOf,devStudio.publisher};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -147,7 +147,7 @@ privileged aspect DevStudioRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(MAIN___LOC, devStudio.main_loc)
 			.map(DEVS___COUNT, devStudio.devs_count)
 			.map(VALUE_OF, devStudio.valueOf)
-			.map(PUBLISHERS, devStudio.publishers);
+			.map(PUBLISHER, devStudio.publisher);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);

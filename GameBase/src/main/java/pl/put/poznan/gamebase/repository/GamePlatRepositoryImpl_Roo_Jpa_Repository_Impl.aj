@@ -13,8 +13,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 import pl.put.poznan.gamebase.repository.GamePlatRepositoryImpl;
+import pl.put.poznan.gamebase.structures.Game;
 import pl.put.poznan.gamebase.structures.GamePlat;
-import pl.put.poznan.gamebase.structures.Games;
 import pl.put.poznan.gamebase.structures.Platform;
 import pl.put.poznan.gamebase.structures.QGamePlat;
 
@@ -26,7 +26,7 @@ privileged aspect GamePlatRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String GamePlatRepositoryImpl.GAMES = "games";
+    public static final String GamePlatRepositoryImpl.GAME = "game";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -59,11 +59,11 @@ privileged aspect GamePlatRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<GamePlat> query = from(gamePlat);
         
-        Path<?>[] paths = new Path<?>[] {gamePlat.games,gamePlat.price,gamePlat.sales,gamePlat.platform};        
+        Path<?>[] paths = new Path<?>[] {gamePlat.game,gamePlat.price,gamePlat.sales,gamePlat.platform};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
-			.map(GAMES, gamePlat.games)
+			.map(GAME, gamePlat.game)
 			.map(PRICE, gamePlat.price)
 			.map(SALES, gamePlat.sales)
 			.map(PLATFORM, gamePlat.platform);
@@ -88,14 +88,14 @@ privileged aspect GamePlatRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<GamePlat> query = from(gamePlat);
         
-        Path<?>[] paths = new Path<?>[] {gamePlat.games,gamePlat.price,gamePlat.sales,gamePlat.platform};        
+        Path<?>[] paths = new Path<?>[] {gamePlat.game,gamePlat.price,gamePlat.sales,gamePlat.platform};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
         query.where(gamePlat.id.in(ids));
         
         AttributeMappingBuilder mapping = buildMapper()
-			.map(GAMES, gamePlat.games)
+			.map(GAME, gamePlat.game)
 			.map(PRICE, gamePlat.price)
 			.map(SALES, gamePlat.sales)
 			.map(PLATFORM, gamePlat.platform);
@@ -109,25 +109,25 @@ privileged aspect GamePlatRepositoryImpl_Roo_Jpa_Repository_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param games
+     * @param game
      * @param globalSearch
      * @param pageable
      * @return Page
      */
-    public Page<GamePlat> GamePlatRepositoryImpl.findByGames(Games games, GlobalSearch globalSearch, Pageable pageable) {
+    public Page<GamePlat> GamePlatRepositoryImpl.findByGame(Game game, GlobalSearch globalSearch, Pageable pageable) {
         
         QGamePlat gamePlat = QGamePlat.gamePlat;
         
         JPQLQuery<GamePlat> query = from(gamePlat);
         
-        Assert.notNull(games, "games is required");
+        Assert.notNull(game, "game is required");
         
-        query.where(gamePlat.games.eq(games));
-        Path<?>[] paths = new Path<?>[] {gamePlat.games,gamePlat.price,gamePlat.sales,gamePlat.platform};        
+        query.where(gamePlat.game.eq(game));
+        Path<?>[] paths = new Path<?>[] {gamePlat.game,gamePlat.price,gamePlat.sales,gamePlat.platform};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
-			.map(GAMES, gamePlat.games)
+			.map(GAME, gamePlat.game)
 			.map(PRICE, gamePlat.price)
 			.map(SALES, gamePlat.sales)
 			.map(PLATFORM, gamePlat.platform);
@@ -155,11 +155,11 @@ privileged aspect GamePlatRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(platform, "platform is required");
         
         query.where(gamePlat.platform.eq(platform));
-        Path<?>[] paths = new Path<?>[] {gamePlat.games,gamePlat.price,gamePlat.sales,gamePlat.platform};        
+        Path<?>[] paths = new Path<?>[] {gamePlat.game,gamePlat.price,gamePlat.sales,gamePlat.platform};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
-			.map(GAMES, gamePlat.games)
+			.map(GAME, gamePlat.game)
 			.map(PRICE, gamePlat.price)
 			.map(SALES, gamePlat.sales)
 			.map(PLATFORM, gamePlat.platform);

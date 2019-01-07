@@ -5,7 +5,7 @@ package pl.put.poznan.gamebase.repository;
 
 import org.springframework.transaction.annotation.Transactional;
 import pl.put.poznan.gamebase.repository.GamePlatRepository;
-import pl.put.poznan.gamebase.structures.Games;
+import pl.put.poznan.gamebase.structures.Game;
 import pl.put.poznan.gamebase.structures.Platform;
 
 privileged aspect GamePlatRepository_Roo_Jpa_Repository {
@@ -15,10 +15,10 @@ privileged aspect GamePlatRepository_Roo_Jpa_Repository {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param games
+     * @param game
      * @return Long
      */
-    public abstract long GamePlatRepository.countByGames(Games games);
+    public abstract long GamePlatRepository.countByGame(Game game);
     
     /**
      * TODO Auto-generated method documentation

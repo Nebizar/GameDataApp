@@ -40,9 +40,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import pl.put.poznan.gamebase.service.api.DevStudioService;
-import pl.put.poznan.gamebase.service.api.GamesService;
+import pl.put.poznan.gamebase.service.api.GameService;
 import pl.put.poznan.gamebase.structures.DevStudio;
-import pl.put.poznan.gamebase.structures.Games;
+import pl.put.poznan.gamebase.structures.Game;
 import pl.put.poznan.gamebase.web.DevStudiosCollectionThymeleafController;
 import pl.put.poznan.gamebase.web.DevStudiosCollectionThymeleafLinkFactory;
 import pl.put.poznan.gamebase.web.DevStudiosItemGamesThymeleafController;
@@ -63,7 +63,7 @@ privileged aspect DevStudiosItemGamesThymeleafController_Roo_Thymeleaf {
      * TODO Auto-generated attribute documentation
      * 
      */
-    private GamesService DevStudiosItemGamesThymeleafController.gamesService;
+    private GameService DevStudiosItemGamesThymeleafController.gameService;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -87,15 +87,15 @@ privileged aspect DevStudiosItemGamesThymeleafController_Roo_Thymeleaf {
      * TODO Auto-generated constructor documentation
      * 
      * @param devStudioService
-     * @param gamesService
+     * @param gameService
      * @param conversionService
      * @param messageSource
      * @param linkBuilder
      */
     @Autowired
-    public DevStudiosItemGamesThymeleafController.new(DevStudioService devStudioService, GamesService gamesService, ConversionService conversionService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
+    public DevStudiosItemGamesThymeleafController.new(DevStudioService devStudioService, GameService gameService, ConversionService conversionService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
         setDevStudioService(devStudioService);
-        setGamesService(gamesService);
+        setGameService(gameService);
         setConversionService(conversionService);
         setMessageSource(messageSource);
         setCollectionLink(linkBuilder.of(DevStudiosCollectionThymeleafController.class));
@@ -122,19 +122,19 @@ privileged aspect DevStudiosItemGamesThymeleafController_Roo_Thymeleaf {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @return GamesService
+     * @return GameService
      */
-    public GamesService DevStudiosItemGamesThymeleafController.getGamesService() {
-        return gamesService;
+    public GameService DevStudiosItemGamesThymeleafController.getGameService() {
+        return gameService;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param gamesService
+     * @param gameService
      */
-    public void DevStudiosItemGamesThymeleafController.setGamesService(GamesService gamesService) {
-        this.gamesService = gamesService;
+    public void DevStudiosItemGamesThymeleafController.setGameService(GameService gameService) {
+        this.gameService = gameService;
     }
     
     /**
@@ -246,11 +246,11 @@ privileged aspect DevStudiosItemGamesThymeleafController_Roo_Thymeleaf {
      */
     @GetMapping(name = "datatables", produces = Datatables.MEDIA_TYPE, value = "/dt")
     @ResponseBody
-    public ResponseEntity<ConvertedDatatablesData<Games>> DevStudiosItemGamesThymeleafController.datatables(@ModelAttribute DevStudio devstudio, DatatablesColumns datatablesColumns, GlobalSearch search, DatatablesPageable pageable, @RequestParam("draw") Integer draw) {
+    public ResponseEntity<ConvertedDatatablesData<Game>> DevStudiosItemGamesThymeleafController.datatables(@ModelAttribute DevStudio devstudio, DatatablesColumns datatablesColumns, GlobalSearch search, DatatablesPageable pageable, @RequestParam("draw") Integer draw) {
         
-        Page<Games> games = getGamesService().findByDevstudio(devstudio, search, pageable);
-        long totalGamesCount = getGamesService().countByDevstudio(devstudio);
-        ConvertedDatatablesData<Games> data =  new ConvertedDatatablesData<Games>(games, totalGamesCount, draw, getConversionService(), datatablesColumns);
+        Page<Game> games = getGameService().findByDevstudio(devstudio, search, pageable);
+        long totalGamesCount = getGameService().countByDevstudio(devstudio);
+        ConvertedDatatablesData<Game> data =  new ConvertedDatatablesData<Game>(games, totalGamesCount, draw, getConversionService(), datatablesColumns);
         return ResponseEntity.ok(data);
     }
     
@@ -266,11 +266,11 @@ privileged aspect DevStudiosItemGamesThymeleafController_Roo_Thymeleaf {
      */
     @GetMapping(name = "datatablesByIdsIn", produces = Datatables.MEDIA_TYPE, value = "/dtByIdsIn")
     @ResponseBody
-    public ResponseEntity<ConvertedDatatablesData<Games>> DevStudiosItemGamesThymeleafController.datatablesByIdsIn(@RequestParam("ids") List<Long> ids, DatatablesColumns datatablesColumns, GlobalSearch search, DatatablesPageable pageable, @RequestParam("draw") Integer draw) {
+    public ResponseEntity<ConvertedDatatablesData<Game>> DevStudiosItemGamesThymeleafController.datatablesByIdsIn(@RequestParam("ids") List<Long> ids, DatatablesColumns datatablesColumns, GlobalSearch search, DatatablesPageable pageable, @RequestParam("draw") Integer draw) {
         
-        Page<Games> games = getGamesService().findAllByIdsIn(ids, search, pageable);
+        Page<Game> games = getGameService().findAllByIdsIn(ids, search, pageable);
         long totalGamesCount = games.getTotalElements();
-        ConvertedDatatablesData<Games> data =  new ConvertedDatatablesData<Games>(games, totalGamesCount, draw, getConversionService(), datatablesColumns);
+        ConvertedDatatablesData<Game> data =  new ConvertedDatatablesData<Game>(games, totalGamesCount, draw, getConversionService(), datatablesColumns);
         return ResponseEntity.ok(data);
     }
     
@@ -284,7 +284,7 @@ privileged aspect DevStudiosItemGamesThymeleafController_Roo_Thymeleaf {
     @GetMapping(value = "/create-form", name = "createForm")
     public ModelAndView DevStudiosItemGamesThymeleafController.createForm(@ModelAttribute DevStudio devStudio, Model model) {
         populateForm(model);
-        model.addAttribute("games", new Games());
+        model.addAttribute("game", new Game());
         return new ModelAndView("devstudios/games/create");
     }
     
@@ -342,9 +342,9 @@ privileged aspect DevStudiosItemGamesThymeleafController_Roo_Thymeleaf {
             // Obtain the selected books and include them in the author that will be 
             // included in the view
             if (games != null) {
-                devStudio.setGames(new HashSet<Games>(getGamesService().findAll(games)));
+                devStudio.setGames(new HashSet<Game>(getGameService().findAll(games)));
             }else{
-                devStudio.setGames(new HashSet<Games>());
+                devStudio.setGames(new HashSet<Game>());
             }
             // Reset the version to prevent update
              devStudio.setVersion(version);

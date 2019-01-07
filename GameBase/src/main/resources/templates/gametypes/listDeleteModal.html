@@ -1,0 +1,18 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="gametype-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('GameTypesCollectionThymeleafController')},itemLink=${@linkBuilder.of('GameTypesItemThymeleafController')}">
+    <table id="gametype-entity-table-item-to-remove" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="name" data-th-text="#{label_gametype_name}">name</th>
+          <th data-data="description" data-th-text="#{label_gametype_description}">description</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>name</td>
+          <td>description</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

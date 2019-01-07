@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 import pl.put.poznan.gamebase.repository.DLCRepositoryImpl;
 import pl.put.poznan.gamebase.structures.DLC;
-import pl.put.poznan.gamebase.structures.Games;
+import pl.put.poznan.gamebase.structures.Game;
 import pl.put.poznan.gamebase.structures.QDLC;
 
 privileged aspect DLCRepositoryImpl_Roo_Jpa_Repository_Impl {
@@ -25,7 +25,7 @@ privileged aspect DLCRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String DLCRepositoryImpl.GAMES = "games";
+    public static final String DLCRepositoryImpl.GAME = "game";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -64,11 +64,11 @@ privileged aspect DLCRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<DLC> query = from(dLC);
         
-        Path<?>[] paths = new Path<?>[] {dLC.games,dLC.name,dLC.rel_date,dLC.price,dLC.description};        
+        Path<?>[] paths = new Path<?>[] {dLC.game,dLC.name,dLC.rel_date,dLC.price,dLC.description};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
-			.map(GAMES, dLC.games)
+			.map(GAME, dLC.game)
 			.map(NAME, dLC.name)
 			.map(REL___DATE, dLC.rel_date)
 			.map(PRICE, dLC.price)
@@ -94,14 +94,14 @@ privileged aspect DLCRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<DLC> query = from(dLC);
         
-        Path<?>[] paths = new Path<?>[] {dLC.games,dLC.name,dLC.rel_date,dLC.price,dLC.description};        
+        Path<?>[] paths = new Path<?>[] {dLC.game,dLC.name,dLC.rel_date,dLC.price,dLC.description};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
         query.where(dLC.id.in(ids));
         
         AttributeMappingBuilder mapping = buildMapper()
-			.map(GAMES, dLC.games)
+			.map(GAME, dLC.game)
 			.map(NAME, dLC.name)
 			.map(REL___DATE, dLC.rel_date)
 			.map(PRICE, dLC.price)
@@ -116,25 +116,25 @@ privileged aspect DLCRepositoryImpl_Roo_Jpa_Repository_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param games
+     * @param game
      * @param globalSearch
      * @param pageable
      * @return Page
      */
-    public Page<DLC> DLCRepositoryImpl.findByGames(Games games, GlobalSearch globalSearch, Pageable pageable) {
+    public Page<DLC> DLCRepositoryImpl.findByGame(Game game, GlobalSearch globalSearch, Pageable pageable) {
         
         QDLC dLC = QDLC.dLC;
         
         JPQLQuery<DLC> query = from(dLC);
         
-        Assert.notNull(games, "games is required");
+        Assert.notNull(game, "game is required");
         
-        query.where(dLC.games.eq(games));
-        Path<?>[] paths = new Path<?>[] {dLC.games,dLC.name,dLC.rel_date,dLC.price,dLC.description};        
+        query.where(dLC.game.eq(game));
+        Path<?>[] paths = new Path<?>[] {dLC.game,dLC.name,dLC.rel_date,dLC.price,dLC.description};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
-			.map(GAMES, dLC.games)
+			.map(GAME, dLC.game)
 			.map(NAME, dLC.name)
 			.map(REL___DATE, dLC.rel_date)
 			.map(PRICE, dLC.price)

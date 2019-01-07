@@ -520,11 +520,11 @@ privileged aspect ReviewersCollectionThymeleafController_Roo_Thymeleaf {
         else if (columnName.equals("nick")) {
             builder.addColumn(getMessageSource().getMessage("label_reviewer_nick", null, "Nick", locale), "nick", String.class.getName(), 100);
         }
-        else if (columnName.equals("crit")) {
-            builder.addColumn(getMessageSource().getMessage("label_reviewer_crit", null, "Crit", locale), "crit", Boolean.class.getName(), 100);
+        else if (columnName.equals("critic")) {
+            builder.addColumn(getMessageSource().getMessage("label_reviewer_critic", null, "Critic", locale), "critic", Boolean.class.getName(), 100);
         }
-        else if (columnName.equals("af")) {
-            builder.addColumn(getMessageSource().getMessage("label_reviewer_af", null, "Af", locale), "af", String.class.getName(), 100);
+        else if (columnName.equals("affility")) {
+            builder.addColumn(getMessageSource().getMessage("label_reviewer_affility", null, "Affility", locale), "affility", String.class.getName(), 100);
         }
         }
         catch (ColumnBuilderException e) {

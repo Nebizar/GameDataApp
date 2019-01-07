@@ -7,8 +7,8 @@ import io.springlets.format.EntityFormat;
 import javax.persistence.Entity;
 import org.springframework.util.Assert;
 import pl.put.poznan.gamebase.structures.DevStudio;
-import pl.put.poznan.gamebase.structures.Developers;
-import pl.put.poznan.gamebase.structures.Games;
+import pl.put.poznan.gamebase.structures.Developer;
+import pl.put.poznan.gamebase.structures.Game;
 
 privileged aspect DevStudio_Roo_Jpa_Entity {
     
@@ -33,9 +33,9 @@ privileged aspect DevStudio_Roo_Jpa_Entity {
      * 
      * @param gamesToAdd
      */
-    public void DevStudio.addToGames(Iterable<Games> gamesToAdd) {
+    public void DevStudio.addToGames(Iterable<Game> gamesToAdd) {
         Assert.notNull(gamesToAdd, ITERABLE_TO_ADD_CANT_BE_NULL_MESSAGE);
-        for (Games item : gamesToAdd) {
+        for (Game item : gamesToAdd) {
             this.games.add(item);
             item.setDevstudio(this);
         }
@@ -46,9 +46,9 @@ privileged aspect DevStudio_Roo_Jpa_Entity {
      * 
      * @param gamesToRemove
      */
-    public void DevStudio.removeFromGames(Iterable<Games> gamesToRemove) {
+    public void DevStudio.removeFromGames(Iterable<Game> gamesToRemove) {
         Assert.notNull(gamesToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
-        for (Games item : gamesToRemove) {
+        for (Game item : gamesToRemove) {
             this.games.remove(item);
             item.setDevstudio(null);
         }
@@ -59,9 +59,9 @@ privileged aspect DevStudio_Roo_Jpa_Entity {
      * 
      * @param developersToAdd
      */
-    public void DevStudio.addToDevelopers(Iterable<Developers> developersToAdd) {
+    public void DevStudio.addToDevelopers(Iterable<Developer> developersToAdd) {
         Assert.notNull(developersToAdd, ITERABLE_TO_ADD_CANT_BE_NULL_MESSAGE);
-        for (Developers item : developersToAdd) {
+        for (Developer item : developersToAdd) {
             this.developers.add(item);
             item.setDevstudio(this);
         }
@@ -72,9 +72,9 @@ privileged aspect DevStudio_Roo_Jpa_Entity {
      * 
      * @param developersToRemove
      */
-    public void DevStudio.removeFromDevelopers(Iterable<Developers> developersToRemove) {
+    public void DevStudio.removeFromDevelopers(Iterable<Developer> developersToRemove) {
         Assert.notNull(developersToRemove, ITERABLE_TO_REMOVE_CANT_BE_NULL_MESSAGE);
-        for (Developers item : developersToRemove) {
+        for (Developer item : developersToRemove) {
             this.developers.remove(item);
             item.setDevstudio(null);
         }

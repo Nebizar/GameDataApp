@@ -71,42 +71,42 @@ privileged aspect Reviewer_Roo_JavaBean {
     }
     
     /**
-     * Gets crit value
+     * Gets critic value
      * 
      * @return Boolean
      */
-    public Boolean Reviewer.getCrit() {
-        return this.crit;
+    public Boolean Reviewer.getCritic() {
+        return this.critic;
     }
     
     /**
-     * Sets crit value
+     * Sets critic value
      * 
-     * @param crit
+     * @param critic
      * @return Reviewer
      */
-    public Reviewer Reviewer.setCrit(Boolean crit) {
-        this.crit = crit;
+    public Reviewer Reviewer.setCritic(Boolean critic) {
+        this.critic = critic;
         return this;
     }
     
     /**
-     * Gets af value
+     * Gets affility value
      * 
      * @return String
      */
-    public String Reviewer.getAf() {
-        return this.af;
+    public String Reviewer.getAffility() {
+        return this.affility;
     }
     
     /**
-     * Sets af value
+     * Sets affility value
      * 
-     * @param af
+     * @param affility
      * @return Reviewer
      */
-    public Reviewer Reviewer.setAf(String af) {
-        this.af = af;
+    public Reviewer Reviewer.setAffility(String affility) {
+        this.affility = affility;
         return this;
     }
     
@@ -170,8 +170,8 @@ privileged aspect Reviewer_Roo_JavaBean {
                 "id='" + id + '\'' + 
                 ", version='" + version + '\'' + 
                 ", nick='" + nick + '\'' + 
-                ", crit='" + crit + '\'' + 
-                ", af='" + af + '\'' + "}" + super.toString();
+                ", critic='" + critic + '\'' + 
+                ", affility='" + affility + '\'' + "}" + super.toString();
     }
     
 }

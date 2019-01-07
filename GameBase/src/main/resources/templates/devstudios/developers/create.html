@@ -49,9 +49,9 @@
             <!-- /CONCURRENCY CONTROL -->
             
             <fieldset id="containerFields">
-              <legend data-th-text="#{label_data_entity(#{label_developers})}">Developers data </legend>
+              <legend data-th-text="#{label_data_entity(#{label_developer})}">Developer data </legend>
 
-                <div class="form-group has-error has-feedback" data-z="f2855bd" id="developers-detail" data-th-class="form-group" data-th-with="select2ControllerLink=${@linkBuilder.of('DeveloperssCollectionThymeleafController')}">
+                <div class="form-group has-error has-feedback" data-z="5b0f8cfc" id="developers-detail" data-th-class="form-group" data-th-with="select2ControllerLink=${@linkBuilder.of('DevelopersCollectionThymeleafController')}">
                     <div class="col-md-6 col-md-offset-3">
                       <select id="developers" name="developersIds" class="form-control dropdown-select-ajax" data-allow-clear="true" data-ajax--cache="true" data-ajax--data-type="json" data-ajax--delay="250" multiple="multiple" data-data-ajax--url="${select2ControllerLink.to('select2')}" data-data-placeholder="#{info_select_developers}">
                           <option data-th-each="item: *{developers}" selected="true" data-th-text="${{item}}" data-th-value="${item.id}">Another product to select</option>

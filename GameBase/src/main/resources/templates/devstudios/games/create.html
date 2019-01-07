@@ -49,9 +49,9 @@
             <!-- /CONCURRENCY CONTROL -->
             
             <fieldset id="containerFields">
-              <legend data-th-text="#{label_data_entity(#{label_games})}">Games data </legend>
+              <legend data-th-text="#{label_data_entity(#{label_game})}">Game data </legend>
 
-                <div class="form-group has-error has-feedback" data-z="55e3c8bd" id="games-detail" data-th-class="form-group" data-th-with="select2ControllerLink=${@linkBuilder.of('GamesesCollectionThymeleafController')}">
+                <div class="form-group has-error has-feedback" data-z="fb8776ac" id="games-detail" data-th-class="form-group" data-th-with="select2ControllerLink=${@linkBuilder.of('GamesCollectionThymeleafController')}">
                     <div class="col-md-6 col-md-offset-3">
                       <select id="games" name="gamesIds" class="form-control dropdown-select-ajax" data-allow-clear="true" data-ajax--cache="true" data-ajax--data-type="json" data-ajax--delay="250" multiple="multiple" data-data-ajax--url="${select2ControllerLink.to('select2')}" data-data-placeholder="#{info_select_games}">
                           <option data-th-each="item: *{games}" selected="true" data-th-text="${{item}}" data-th-value="${item.id}">Another product to select</option>

@@ -13,7 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 import pl.put.poznan.gamebase.repository.ReviewRepositoryImpl;
-import pl.put.poznan.gamebase.structures.Games;
+import pl.put.poznan.gamebase.structures.Game;
 import pl.put.poznan.gamebase.structures.QReview;
 import pl.put.poznan.gamebase.structures.Review;
 import pl.put.poznan.gamebase.structures.Reviewer;
@@ -62,7 +62,7 @@ privileged aspect ReviewRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String ReviewRepositoryImpl.GAMES = "games";
+    public static final String ReviewRepositoryImpl.GAME = "game";
     
     /**
      * TODO Auto-generated method documentation
@@ -77,7 +77,7 @@ privileged aspect ReviewRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<Review> query = from(review);
         
-        Path<?>[] paths = new Path<?>[] {review.reviewer,review.user_score,review.crit_score,review.gameplay,review.graphics,review.audio,review.games};        
+        Path<?>[] paths = new Path<?>[] {review.reviewer,review.user_score,review.crit_score,review.gameplay,review.graphics,review.audio,review.game};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -87,7 +87,7 @@ privileged aspect ReviewRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(GAMEPLAY, review.gameplay)
 			.map(GRAPHICS, review.graphics)
 			.map(AUDIO, review.audio)
-			.map(GAMES, review.games);
+			.map(GAME, review.game);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);
@@ -109,7 +109,7 @@ privileged aspect ReviewRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<Review> query = from(review);
         
-        Path<?>[] paths = new Path<?>[] {review.reviewer,review.user_score,review.crit_score,review.gameplay,review.graphics,review.audio,review.games};        
+        Path<?>[] paths = new Path<?>[] {review.reviewer,review.user_score,review.crit_score,review.gameplay,review.graphics,review.audio,review.game};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
@@ -122,7 +122,7 @@ privileged aspect ReviewRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(GAMEPLAY, review.gameplay)
 			.map(GRAPHICS, review.graphics)
 			.map(AUDIO, review.audio)
-			.map(GAMES, review.games);
+			.map(GAME, review.game);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);
@@ -133,21 +133,21 @@ privileged aspect ReviewRepositoryImpl_Roo_Jpa_Repository_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param games
+     * @param game
      * @param globalSearch
      * @param pageable
      * @return Page
      */
-    public Page<Review> ReviewRepositoryImpl.findByGames(Games games, GlobalSearch globalSearch, Pageable pageable) {
+    public Page<Review> ReviewRepositoryImpl.findByGame(Game game, GlobalSearch globalSearch, Pageable pageable) {
         
         QReview review = QReview.review;
         
         JPQLQuery<Review> query = from(review);
         
-        Assert.notNull(games, "games is required");
+        Assert.notNull(game, "game is required");
         
-        query.where(review.games.eq(games));
-        Path<?>[] paths = new Path<?>[] {review.reviewer,review.user_score,review.crit_score,review.gameplay,review.graphics,review.audio,review.games};        
+        query.where(review.game.eq(game));
+        Path<?>[] paths = new Path<?>[] {review.reviewer,review.user_score,review.crit_score,review.gameplay,review.graphics,review.audio,review.game};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -157,7 +157,7 @@ privileged aspect ReviewRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(GAMEPLAY, review.gameplay)
 			.map(GRAPHICS, review.graphics)
 			.map(AUDIO, review.audio)
-			.map(GAMES, review.games);
+			.map(GAME, review.game);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);
@@ -182,7 +182,7 @@ privileged aspect ReviewRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(reviewer, "reviewer is required");
         
         query.where(review.reviewer.eq(reviewer));
-        Path<?>[] paths = new Path<?>[] {review.reviewer,review.user_score,review.crit_score,review.gameplay,review.graphics,review.audio,review.games};        
+        Path<?>[] paths = new Path<?>[] {review.reviewer,review.user_score,review.crit_score,review.gameplay,review.graphics,review.audio,review.game};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
@@ -192,7 +192,7 @@ privileged aspect ReviewRepositoryImpl_Roo_Jpa_Repository_Impl {
 			.map(GAMEPLAY, review.gameplay)
 			.map(GRAPHICS, review.graphics)
 			.map(AUDIO, review.audio)
-			.map(GAMES, review.games);
+			.map(GAME, review.game);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);

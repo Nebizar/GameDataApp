@@ -9,19 +9,19 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import pl.put.poznan.gamebase.repository.DevStudioRepositoryCustom;
 import pl.put.poznan.gamebase.structures.DevStudio;
-import pl.put.poznan.gamebase.structures.Publishers;
+import pl.put.poznan.gamebase.structures.Publisher;
 
 privileged aspect DevStudioRepositoryCustom_Roo_Jpa_Repository_Custom {
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param publishers
+     * @param publisher
      * @param globalSearch
      * @param pageable
      * @return Page
      */
-    public abstract Page<DevStudio> DevStudioRepositoryCustom.findByPublishers(Publishers publishers, GlobalSearch globalSearch, Pageable pageable);
+    public abstract Page<DevStudio> DevStudioRepositoryCustom.findByPublisher(Publisher publisher, GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation

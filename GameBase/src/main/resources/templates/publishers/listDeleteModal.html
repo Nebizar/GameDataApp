@@ -1,0 +1,20 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="publisher-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('PublishersCollectionThymeleafController')},itemLink=${@linkBuilder.of('PublishersItemThymeleafController')}">
+    <table id="publisher-entity-table-item-to-remove" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="name" data-th-text="#{label_publisher_name}">name</th>
+          <th data-data="valueOf" data-th-text="#{label_publisher_valueof}">valueOf</th>
+          <th data-data="main_loc" data-th-text="#{label_publisher_main_loc}">main_loc</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>name</td>
+          <td>valueOf</td>
+          <td>main_loc</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

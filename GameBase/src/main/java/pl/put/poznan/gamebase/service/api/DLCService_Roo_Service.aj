@@ -9,7 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import pl.put.poznan.gamebase.service.api.DLCService;
 import pl.put.poznan.gamebase.structures.DLC;
-import pl.put.poznan.gamebase.structures.Games;
+import pl.put.poznan.gamebase.structures.Game;
 
 privileged aspect DLCService_Roo_Service {
     
@@ -103,19 +103,19 @@ privileged aspect DLCService_Roo_Service {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param games
+     * @param game
      * @param globalSearch
      * @param pageable
      * @return Page
      */
-    public abstract Page<DLC> DLCService.findByGames(Games games, GlobalSearch globalSearch, Pageable pageable);
+    public abstract Page<DLC> DLCService.findByGame(Game game, GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param games
+     * @param game
      * @return Long
      */
-    public abstract long DLCService.countByGames(Games games);
+    public abstract long DLCService.countByGame(Game game);
     
 }

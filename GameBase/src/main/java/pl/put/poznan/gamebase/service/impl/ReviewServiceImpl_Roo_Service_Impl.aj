@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.put.poznan.gamebase.repository.ReviewRepository;
 import pl.put.poznan.gamebase.service.impl.ReviewServiceImpl;
-import pl.put.poznan.gamebase.structures.Games;
+import pl.put.poznan.gamebase.structures.Game;
 import pl.put.poznan.gamebase.structures.Review;
 import pl.put.poznan.gamebase.structures.Reviewer;
 
@@ -79,9 +79,9 @@ privileged aspect ReviewServiceImpl_Roo_Service_Impl {
      */
     @Transactional
     public void ReviewServiceImpl.delete(Review review) {
-        // Clear bidirectional many-to-one child relationship with Games
-        if (review.getGames() != null) {
-            review.getGames().getReviews().remove(review);
+        // Clear bidirectional many-to-one child relationship with Game
+        if (review.getGame() != null) {
+            review.getGame().getReviews().remove(review);
         }
         
         // Clear bidirectional many-to-one child relationship with Reviewer
@@ -199,13 +199,13 @@ privileged aspect ReviewServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param games
+     * @param game
      * @param globalSearch
      * @param pageable
      * @return Page
      */
-    public Page<Review> ReviewServiceImpl.findByGames(Games games, GlobalSearch globalSearch, Pageable pageable) {
-        return getReviewRepository().findByGames(games, globalSearch, pageable);
+    public Page<Review> ReviewServiceImpl.findByGame(Game game, GlobalSearch globalSearch, Pageable pageable) {
+        return getReviewRepository().findByGame(game, globalSearch, pageable);
     }
     
     /**
@@ -223,11 +223,11 @@ privileged aspect ReviewServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param games
+     * @param game
      * @return Long
      */
-    public long ReviewServiceImpl.countByGames(Games games) {
-        return getReviewRepository().countByGames(games);
+    public long ReviewServiceImpl.countByGame(Game game) {
+        return getReviewRepository().countByGame(game);
     }
     
     /**

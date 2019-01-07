@@ -6,7 +6,7 @@ package pl.put.poznan.gamebase.structures;
 import java.util.Calendar;
 import java.util.Objects;
 import pl.put.poznan.gamebase.structures.DLC;
-import pl.put.poznan.gamebase.structures.Games;
+import pl.put.poznan.gamebase.structures.Game;
 
 privileged aspect DLC_Roo_JavaBean {
     
@@ -51,22 +51,22 @@ privileged aspect DLC_Roo_JavaBean {
     }
     
     /**
-     * Gets games value
+     * Gets game value
      * 
-     * @return Games
+     * @return Game
      */
-    public Games DLC.getGames() {
-        return this.games;
+    public Game DLC.getGame() {
+        return this.game;
     }
     
     /**
-     * Sets games value
+     * Sets game value
      * 
-     * @param games
+     * @param game
      * @return DLC
      */
-    public DLC DLC.setGames(Games games) {
-        this.games = games;
+    public DLC DLC.setGame(Game game) {
+        this.game = game;
         return this;
     }
     

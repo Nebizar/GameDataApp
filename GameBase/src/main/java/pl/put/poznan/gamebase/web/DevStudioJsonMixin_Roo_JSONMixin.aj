@@ -6,11 +6,11 @@ package pl.put.poznan.gamebase.web;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.util.Set;
-import pl.put.poznan.gamebase.structures.Developers;
-import pl.put.poznan.gamebase.structures.Games;
-import pl.put.poznan.gamebase.structures.Publishers;
+import pl.put.poznan.gamebase.structures.Developer;
+import pl.put.poznan.gamebase.structures.Game;
+import pl.put.poznan.gamebase.structures.Publisher;
 import pl.put.poznan.gamebase.web.DevStudioJsonMixin;
-import pl.put.poznan.gamebase.web.PublishersDeserializer;
+import pl.put.poznan.gamebase.web.PublisherDeserializer;
 
 privileged aspect DevStudioJsonMixin_Roo_JSONMixin {
     
@@ -19,28 +19,28 @@ privileged aspect DevStudioJsonMixin_Roo_JSONMixin {
      * 
      */
     @JsonIgnore
-    private Set<Developers> DevStudioJsonMixin.developers;
+    private Set<Developer> DevStudioJsonMixin.developers;
     
     /**
      * TODO Auto-generated attribute documentation
      * 
      */
     @JsonIgnore
-    private Set<Games> DevStudioJsonMixin.games;
+    private Set<Game> DevStudioJsonMixin.games;
     
     /**
      * TODO Auto-generated attribute documentation
      * 
      */
-    @JsonDeserialize(using = PublishersDeserializer.class)
-    private Publishers DevStudioJsonMixin.publishers;
+    @JsonDeserialize(using = PublisherDeserializer.class)
+    private Publisher DevStudioJsonMixin.publisher;
     
     /**
      * TODO Auto-generated method documentation
      * 
      * @return Set
      */
-    public Set<Developers> DevStudioJsonMixin.getDevelopers() {
+    public Set<Developer> DevStudioJsonMixin.getDevelopers() {
         return developers;
     }
     
@@ -49,7 +49,7 @@ privileged aspect DevStudioJsonMixin_Roo_JSONMixin {
      * 
      * @param developers
      */
-    public void DevStudioJsonMixin.setDevelopers(Set<Developers> developers) {
+    public void DevStudioJsonMixin.setDevelopers(Set<Developer> developers) {
         this.developers = developers;
     }
     
@@ -58,7 +58,7 @@ privileged aspect DevStudioJsonMixin_Roo_JSONMixin {
      * 
      * @return Set
      */
-    public Set<Games> DevStudioJsonMixin.getGames() {
+    public Set<Game> DevStudioJsonMixin.getGames() {
         return games;
     }
     
@@ -67,26 +67,26 @@ privileged aspect DevStudioJsonMixin_Roo_JSONMixin {
      * 
      * @param games
      */
-    public void DevStudioJsonMixin.setGames(Set<Games> games) {
+    public void DevStudioJsonMixin.setGames(Set<Game> games) {
         this.games = games;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @return Publishers
+     * @return Publisher
      */
-    public Publishers DevStudioJsonMixin.getPublishers() {
-        return publishers;
+    public Publisher DevStudioJsonMixin.getPublisher() {
+        return publisher;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param publishers
+     * @param publisher
      */
-    public void DevStudioJsonMixin.setPublishers(Publishers publishers) {
-        this.publishers = publishers;
+    public void DevStudioJsonMixin.setPublisher(Publisher publisher) {
+        this.publisher = publisher;
     }
     
 }

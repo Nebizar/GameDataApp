@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_game})}|">Show Game - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${game}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="game-title-field" data-z="30e85581">
+            	      <strong data-th-text="#{label_game_title}">title</strong>
+                    <span data-th-text="*{{title}}">titleValue</span>
+         	        </li>
+                  <li id="game-description-field" data-z="ae8d8f81">
+            	      <strong data-th-text="#{label_game_description}">description</strong>
+                    <span data-th-text="*{{description}}">descriptionValue</span>
+         	        </li>
+                  <li id="game-pegi-field" data-z="449ac51d">
+            	      <strong data-th-text="#{label_game_pegi}">pegi</strong>
+                    <span data-th-text="*{{pegi}}">pegiValue</span>
+         	        </li>
+                  <li id="game-rel_date-field" data-z="8e3afa7d">
+            	      <strong data-th-text="#{label_game_rel_date}">rel_date</strong>
+                    <span data-th-text="*{{rel_date}}">rel_dateValue</span>
+         	        </li>
+                  <li id="game-budget-field" data-z="58de57dd">
+            	      <strong data-th-text="#{label_game_budget}">budget</strong>
+                    <span data-th-text="*{{budget}}">budgetValue</span>
+         	        </li>
+                  <li id="game-gametype-field" data-z="c180077d">
+            	      <strong data-th-text="#{label_game_gametype}">gametype</strong>
+                    <span data-th-text="*{{gametype}}">gametypeValue</span>
+         	        </li>
+                  <li id="game-devstudio-field" data-z="5da3c621">
+            	      <strong data-th-text="#{label_game_devstudio}">devstudio</strong>
+                    <span data-th-text="*{{devstudio}}">devstudioValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

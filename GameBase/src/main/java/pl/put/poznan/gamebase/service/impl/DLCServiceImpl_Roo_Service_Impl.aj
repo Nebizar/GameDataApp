@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.put.poznan.gamebase.repository.DLCRepository;
 import pl.put.poznan.gamebase.service.impl.DLCServiceImpl;
 import pl.put.poznan.gamebase.structures.DLC;
-import pl.put.poznan.gamebase.structures.Games;
+import pl.put.poznan.gamebase.structures.Game;
 
 privileged aspect DLCServiceImpl_Roo_Service_Impl {
     
@@ -78,9 +78,9 @@ privileged aspect DLCServiceImpl_Roo_Service_Impl {
      */
     @Transactional
     public void DLCServiceImpl.delete(DLC dLC) {
-        // Clear bidirectional many-to-one child relationship with Games
-        if (dLC.getGames() != null) {
-            dLC.getGames().getDlcs().remove(dLC);
+        // Clear bidirectional many-to-one child relationship with Game
+        if (dLC.getGame() != null) {
+            dLC.getGame().getDlcs().remove(dLC);
         }
         
         getDLCRepository().delete(dLC);
@@ -193,23 +193,23 @@ privileged aspect DLCServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param games
+     * @param game
      * @param globalSearch
      * @param pageable
      * @return Page
      */
-    public Page<DLC> DLCServiceImpl.findByGames(Games games, GlobalSearch globalSearch, Pageable pageable) {
-        return getDLCRepository().findByGames(games, globalSearch, pageable);
+    public Page<DLC> DLCServiceImpl.findByGame(Game game, GlobalSearch globalSearch, Pageable pageable) {
+        return getDLCRepository().findByGame(game, globalSearch, pageable);
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param games
+     * @param game
      * @return Long
      */
-    public long DLCServiceImpl.countByGames(Games games) {
-        return getDLCRepository().countByGames(games);
+    public long DLCServiceImpl.countByGame(Game game) {
+        return getDLCRepository().countByGame(game);
     }
     
     /**

@@ -51,11 +51,18 @@
 	                  <li><a href="/devstudios" data-th-href="@{/devstudios}" data-th-utext="#{label_list_entity(#{label_devstudio_plural})}">List DevStudio</a></li>
                  </ul>
                 </li>
-                <li class="dropdown" id="developers-entry" data-z="a289e0a8">
-                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_developers})}">Developers<span class="caret"></span></a>
+                <li class="dropdown" id="developer-entry" data-z="751d6016">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_developer})}">Developer<span class="caret"></span></a>
                  <ul class="dropdown-menu">
-	                   <li><a href="/developerss/create-form" data-th-href="@{/developerss/create-form}" data-th-utext="#{label_create_entity(#{label_developers})}">Create Developers</a></li>
-	                  <li><a href="/developerss" data-th-href="@{/developerss}" data-th-utext="#{label_list_entity(#{label_developers_plural})}">List Developers</a></li>
+	                   <li><a href="/developers/create-form" data-th-href="@{/developers/create-form}" data-th-utext="#{label_create_entity(#{label_developer})}">Create Developer</a></li>
+	                  <li><a href="/developers" data-th-href="@{/developers}" data-th-utext="#{label_list_entity(#{label_developer_plural})}">List Developer</a></li>
+                 </ul>
+                </li>
+                <li class="dropdown" id="game-entry" data-z="fab75b68">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_game})}">Game<span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+	                   <li><a href="/games/create-form" data-th-href="@{/games/create-form}" data-th-utext="#{label_create_entity(#{label_game})}">Create Game</a></li>
+	                  <li><a href="/games" data-th-href="@{/games}" data-th-utext="#{label_list_entity(#{label_game_plural})}">List Game</a></li>
                  </ul>
                 </li>
                 <li class="dropdown" id="gameplat-entry" data-z="94073f08">
@@ -65,11 +72,11 @@
 	                  <li><a href="/gameplats" data-th-href="@{/gameplats}" data-th-utext="#{label_list_entity(#{label_gameplat_plural})}">List GamePlat</a></li>
                  </ul>
                 </li>
-                <li class="dropdown" id="games-entry" data-z="6b1d15d7">
-                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_games})}">Games<span class="caret"></span></a>
+                <li class="dropdown" id="gametype-entry" data-z="b95a3308">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_gametype})}">GameType<span class="caret"></span></a>
                  <ul class="dropdown-menu">
-	                   <li><a href="/gameses/create-form" data-th-href="@{/gameses/create-form}" data-th-utext="#{label_create_entity(#{label_games})}">Create Games</a></li>
-	                  <li><a href="/gameses" data-th-href="@{/gameses}" data-th-utext="#{label_list_entity(#{label_games_plural})}">List Games</a></li>
+	                   <li><a href="/gametypes/create-form" data-th-href="@{/gametypes/create-form}" data-th-utext="#{label_create_entity(#{label_gametype})}">Create GameType</a></li>
+	                  <li><a href="/gametypes" data-th-href="@{/gametypes}" data-th-utext="#{label_list_entity(#{label_gametype_plural})}">List GameType</a></li>
                  </ul>
                 </li>
                 <li class="dropdown" id="platform-entry" data-z="33ac52e8">
@@ -79,11 +86,11 @@
 	                  <li><a href="/platforms" data-th-href="@{/platforms}" data-th-utext="#{label_list_entity(#{label_platform_plural})}">List Platform</a></li>
                  </ul>
                 </li>
-                <li class="dropdown" id="publishers-entry" data-z="98b4e8a8">
-                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_publishers})}">Publishers<span class="caret"></span></a>
+                <li class="dropdown" id="publisher-entry" data-z="9715816">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_publisher})}">Publisher<span class="caret"></span></a>
                  <ul class="dropdown-menu">
-	                   <li><a href="/publisherss/create-form" data-th-href="@{/publisherss/create-form}" data-th-utext="#{label_create_entity(#{label_publishers})}">Create Publishers</a></li>
-	                  <li><a href="/publisherss" data-th-href="@{/publisherss}" data-th-utext="#{label_list_entity(#{label_publishers_plural})}">List Publishers</a></li>
+	                   <li><a href="/publishers/create-form" data-th-href="@{/publishers/create-form}" data-th-utext="#{label_create_entity(#{label_publisher})}">Create Publisher</a></li>
+	                  <li><a href="/publishers" data-th-href="@{/publishers}" data-th-utext="#{label_list_entity(#{label_publisher_plural})}">List Publisher</a></li>
                  </ul>
                 </li>
                 <li class="dropdown" id="review-entry" data-z="4c700928">
@@ -98,13 +105,6 @@
                  <ul class="dropdown-menu">
 	                   <li><a href="/reviewers/create-form" data-th-href="@{/reviewers/create-form}" data-th-utext="#{label_create_entity(#{label_reviewer})}">Create Reviewer</a></li>
 	                  <li><a href="/reviewers" data-th-href="@{/reviewers}" data-th-utext="#{label_list_entity(#{label_reviewer_plural})}">List Reviewer</a></li>
-                 </ul>
-                </li>
-                <li class="dropdown" id="type-entry" data-z="b10d3b68">
-                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-th-utext="#{label_menu_entry(#{label_type})}">Type<span class="caret"></span></a>
-                 <ul class="dropdown-menu">
-	                   <li><a href="/types/create-form" data-th-href="@{/types/create-form}" data-th-utext="#{label_create_entity(#{label_type})}">Create Type</a></li>
-	                  <li><a href="/types" data-th-href="@{/types}" data-th-utext="#{label_list_entity(#{label_type_plural})}">List Type</a></li>
                  </ul>
                 </li>
               </ul>

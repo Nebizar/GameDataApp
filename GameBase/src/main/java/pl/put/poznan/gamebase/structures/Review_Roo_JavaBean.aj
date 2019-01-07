@@ -4,7 +4,7 @@
 package pl.put.poznan.gamebase.structures;
 
 import java.util.Objects;
-import pl.put.poznan.gamebase.structures.Games;
+import pl.put.poznan.gamebase.structures.Game;
 import pl.put.poznan.gamebase.structures.Review;
 import pl.put.poznan.gamebase.structures.Reviewer;
 
@@ -171,22 +171,22 @@ privileged aspect Review_Roo_JavaBean {
     }
     
     /**
-     * Gets games value
+     * Gets game value
      * 
-     * @return Games
+     * @return Game
      */
-    public Games Review.getGames() {
-        return this.games;
+    public Game Review.getGame() {
+        return this.game;
     }
     
     /**
-     * Sets games value
+     * Sets game value
      * 
-     * @param games
+     * @param game
      * @return Review
      */
-    public Review Review.setGames(Games games) {
-        this.games = games;
+    public Review Review.setGame(Game game) {
+        this.game = game;
         return this;
     }
     

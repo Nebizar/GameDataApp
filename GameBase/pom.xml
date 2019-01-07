@@ -9,10 +9,10 @@
     <relativePath/>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>pl.put.poznan.gamebase</groupId>
-  <artifactId>gamebase</artifactId>
+  <groupId>pl.put.poznan.gambase</groupId>
+  <artifactId>gambase</artifactId>
   <version>1.0.0.BUILD-SNAPSHOT</version>
-  <name>gamebase</name>
+  <name>gambase</name>
 
   <packaging>jar</packaging>
 

@@ -11,7 +11,7 @@ privileged aspect Review_Roo_Jpa_Entity {
     
     declare @type: Review: @Entity;
     
-    declare @type: Review: @EntityFormat("#{ID}, #{game}");
+    declare @type: Review: @EntityFormat("#{game}");
     
     /**
      * TODO Auto-generated attribute documentation

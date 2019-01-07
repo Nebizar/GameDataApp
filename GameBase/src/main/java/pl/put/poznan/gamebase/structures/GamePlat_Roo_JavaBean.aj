@@ -4,8 +4,8 @@
 package pl.put.poznan.gamebase.structures;
 
 import java.util.Objects;
+import pl.put.poznan.gamebase.structures.Game;
 import pl.put.poznan.gamebase.structures.GamePlat;
-import pl.put.poznan.gamebase.structures.Games;
 import pl.put.poznan.gamebase.structures.Platform;
 
 privileged aspect GamePlat_Roo_JavaBean {
@@ -51,22 +51,22 @@ privileged aspect GamePlat_Roo_JavaBean {
     }
     
     /**
-     * Gets games value
+     * Gets game value
      * 
-     * @return Games
+     * @return Game
      */
-    public Games GamePlat.getGames() {
-        return this.games;
+    public Game GamePlat.getGame() {
+        return this.game;
     }
     
     /**
-     * Sets games value
+     * Sets game value
      * 
-     * @param games
+     * @param game
      * @return GamePlat
      */
-    public GamePlat GamePlat.setGames(Games games) {
-        this.games = games;
+    public GamePlat GamePlat.setGame(Game game) {
+        this.game = game;
         return this;
     }
     

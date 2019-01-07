@@ -5,7 +5,7 @@ package pl.put.poznan.gamebase.repository;
 
 import org.springframework.transaction.annotation.Transactional;
 import pl.put.poznan.gamebase.repository.DLCRepository;
-import pl.put.poznan.gamebase.structures.Games;
+import pl.put.poznan.gamebase.structures.Game;
 
 privileged aspect DLCRepository_Roo_Jpa_Repository {
     
@@ -14,9 +14,9 @@ privileged aspect DLCRepository_Roo_Jpa_Repository {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param games
+     * @param game
      * @return Long
      */
-    public abstract long DLCRepository.countByGames(Games games);
+    public abstract long DLCRepository.countByGame(Game game);
     
 }

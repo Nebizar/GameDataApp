@@ -9,19 +9,19 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import pl.put.poznan.gamebase.repository.DLCRepositoryCustom;
 import pl.put.poznan.gamebase.structures.DLC;
-import pl.put.poznan.gamebase.structures.Games;
+import pl.put.poznan.gamebase.structures.Game;
 
 privileged aspect DLCRepositoryCustom_Roo_Jpa_Repository_Custom {
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param games
+     * @param game
      * @param globalSearch
      * @param pageable
      * @return Page
      */
-    public abstract Page<DLC> DLCRepositoryCustom.findByGames(Games games, GlobalSearch globalSearch, Pageable pageable);
+    public abstract Page<DLC> DLCRepositoryCustom.findByGame(Game game, GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation

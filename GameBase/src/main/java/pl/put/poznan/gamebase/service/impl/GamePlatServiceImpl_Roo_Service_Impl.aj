@@ -14,8 +14,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.put.poznan.gamebase.repository.GamePlatRepository;
 import pl.put.poznan.gamebase.service.impl.GamePlatServiceImpl;
+import pl.put.poznan.gamebase.structures.Game;
 import pl.put.poznan.gamebase.structures.GamePlat;
-import pl.put.poznan.gamebase.structures.Games;
 import pl.put.poznan.gamebase.structures.Platform;
 
 privileged aspect GamePlatServiceImpl_Roo_Service_Impl {
@@ -79,9 +79,9 @@ privileged aspect GamePlatServiceImpl_Roo_Service_Impl {
      */
     @Transactional
     public void GamePlatServiceImpl.delete(GamePlat gamePlat) {
-        // Clear bidirectional many-to-one child relationship with Games
-        if (gamePlat.getGames() != null) {
-            gamePlat.getGames().getPlatforms().remove(gamePlat);
+        // Clear bidirectional many-to-one child relationship with Game
+        if (gamePlat.getGame() != null) {
+            gamePlat.getGame().getPlatforms().remove(gamePlat);
         }
         
         // Clear bidirectional many-to-one child relationship with Platform
@@ -199,13 +199,13 @@ privileged aspect GamePlatServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param games
+     * @param game
      * @param globalSearch
      * @param pageable
      * @return Page
      */
-    public Page<GamePlat> GamePlatServiceImpl.findByGames(Games games, GlobalSearch globalSearch, Pageable pageable) {
-        return getGamePlatRepository().findByGames(games, globalSearch, pageable);
+    public Page<GamePlat> GamePlatServiceImpl.findByGame(Game game, GlobalSearch globalSearch, Pageable pageable) {
+        return getGamePlatRepository().findByGame(game, globalSearch, pageable);
     }
     
     /**
@@ -223,11 +223,11 @@ privileged aspect GamePlatServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param games
+     * @param game
      * @return Long
      */
-    public long GamePlatServiceImpl.countByGames(Games games) {
-        return getGamePlatRepository().countByGames(games);
+    public long GamePlatServiceImpl.countByGame(Game game) {
+        return getGamePlatRepository().countByGame(game);
     }
     
     /**

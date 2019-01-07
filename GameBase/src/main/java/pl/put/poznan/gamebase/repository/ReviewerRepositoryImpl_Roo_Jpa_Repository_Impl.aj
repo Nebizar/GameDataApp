@@ -29,13 +29,13 @@ privileged aspect ReviewerRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String ReviewerRepositoryImpl.CRIT = "crit";
+    public static final String ReviewerRepositoryImpl.CRITIC = "critic";
     
     /**
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String ReviewerRepositoryImpl.AF = "af";
+    public static final String ReviewerRepositoryImpl.AFFILITY = "affility";
     
     /**
      * TODO Auto-generated method documentation
@@ -50,13 +50,13 @@ privileged aspect ReviewerRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<Reviewer> query = from(reviewer);
         
-        Path<?>[] paths = new Path<?>[] {reviewer.nick,reviewer.crit,reviewer.af};        
+        Path<?>[] paths = new Path<?>[] {reviewer.nick,reviewer.critic,reviewer.affility};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
 			.map(NICK, reviewer.nick)
-			.map(CRIT, reviewer.crit)
-			.map(AF, reviewer.af);
+			.map(CRITIC, reviewer.critic)
+			.map(AFFILITY, reviewer.affility);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);
@@ -78,7 +78,7 @@ privileged aspect ReviewerRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<Reviewer> query = from(reviewer);
         
-        Path<?>[] paths = new Path<?>[] {reviewer.nick,reviewer.crit,reviewer.af};        
+        Path<?>[] paths = new Path<?>[] {reviewer.nick,reviewer.critic,reviewer.affility};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
@@ -86,8 +86,8 @@ privileged aspect ReviewerRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         AttributeMappingBuilder mapping = buildMapper()
 			.map(NICK, reviewer.nick)
-			.map(CRIT, reviewer.crit)
-			.map(AF, reviewer.af);
+			.map(CRITIC, reviewer.critic)
+			.map(AFFILITY, reviewer.affility);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);

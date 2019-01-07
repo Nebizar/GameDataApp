@@ -17,13 +17,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.put.poznan.gamebase.repository.DevStudioRepository;
-import pl.put.poznan.gamebase.service.api.DevelopersService;
-import pl.put.poznan.gamebase.service.api.GamesService;
+import pl.put.poznan.gamebase.service.api.DeveloperService;
+import pl.put.poznan.gamebase.service.api.GameService;
 import pl.put.poznan.gamebase.service.impl.DevStudioServiceImpl;
 import pl.put.poznan.gamebase.structures.DevStudio;
-import pl.put.poznan.gamebase.structures.Developers;
-import pl.put.poznan.gamebase.structures.Games;
-import pl.put.poznan.gamebase.structures.Publishers;
+import pl.put.poznan.gamebase.structures.Developer;
+import pl.put.poznan.gamebase.structures.Game;
+import pl.put.poznan.gamebase.structures.Publisher;
 
 privileged aspect DevStudioServiceImpl_Roo_Service_Impl {
     
@@ -41,26 +41,26 @@ privileged aspect DevStudioServiceImpl_Roo_Service_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    private DevelopersService DevStudioServiceImpl.developersService;
+    private DeveloperService DevStudioServiceImpl.developerService;
     
     /**
      * TODO Auto-generated attribute documentation
      * 
      */
-    private GamesService DevStudioServiceImpl.gamesService;
+    private GameService DevStudioServiceImpl.gameService;
     
     /**
      * TODO Auto-generated constructor documentation
      * 
      * @param devStudioRepository
-     * @param developersService
-     * @param gamesService
+     * @param developerService
+     * @param gameService
      */
     @Autowired
-    public DevStudioServiceImpl.new(DevStudioRepository devStudioRepository, @Lazy DevelopersService developersService, @Lazy GamesService gamesService) {
+    public DevStudioServiceImpl.new(DevStudioRepository devStudioRepository, @Lazy DeveloperService developerService, @Lazy GameService gameService) {
         setDevStudioRepository(devStudioRepository);
-        setDevelopersService(developersService);
-        setGamesService(gamesService);
+        setDeveloperService(developerService);
+        setGameService(gameService);
     }
 
     /**
@@ -84,37 +84,37 @@ privileged aspect DevStudioServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @return DevelopersService
+     * @return DeveloperService
      */
-    public DevelopersService DevStudioServiceImpl.getDevelopersService() {
-        return developersService;
+    public DeveloperService DevStudioServiceImpl.getDeveloperService() {
+        return developerService;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param developersService
+     * @param developerService
      */
-    public void DevStudioServiceImpl.setDevelopersService(DevelopersService developersService) {
-        this.developersService = developersService;
+    public void DevStudioServiceImpl.setDeveloperService(DeveloperService developerService) {
+        this.developerService = developerService;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @return GamesService
+     * @return GameService
      */
-    public GamesService DevStudioServiceImpl.getGamesService() {
-        return gamesService;
+    public GameService DevStudioServiceImpl.getGameService() {
+        return gameService;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param gamesService
+     * @param gameService
      */
-    public void DevStudioServiceImpl.setGamesService(GamesService gamesService) {
-        this.gamesService = gamesService;
+    public void DevStudioServiceImpl.setGameService(GameService gameService) {
+        this.gameService = gameService;
     }
     
     /**
@@ -140,7 +140,7 @@ privileged aspect DevStudioServiceImpl_Roo_Service_Impl {
      */
     @Transactional
     public DevStudio DevStudioServiceImpl.addToDevelopers(DevStudio devStudio, Iterable<Long> developersToAdd) {
-        List<Developers> developers = getDevelopersService().findAll(developersToAdd);
+        List<Developer> developers = getDeveloperService().findAll(developersToAdd);
         devStudio.addToDevelopers(developers);
         return getDevStudioRepository().save(devStudio);
     }
@@ -154,7 +154,7 @@ privileged aspect DevStudioServiceImpl_Roo_Service_Impl {
      */
     @Transactional
     public DevStudio DevStudioServiceImpl.addToGames(DevStudio devStudio, Iterable<Long> gamesToAdd) {
-        List<Games> games = getGamesService().findAll(gamesToAdd);
+        List<Game> games = getGameService().findAll(gamesToAdd);
         devStudio.addToGames(games);
         return getDevStudioRepository().save(devStudio);
     }
@@ -168,7 +168,7 @@ privileged aspect DevStudioServiceImpl_Roo_Service_Impl {
      */
     @Transactional
     public DevStudio DevStudioServiceImpl.removeFromDevelopers(DevStudio devStudio, Iterable<Long> developersToRemove) {
-        List<Developers> developers = getDevelopersService().findAll(developersToRemove);
+        List<Developer> developers = getDeveloperService().findAll(developersToRemove);
         devStudio.removeFromDevelopers(developers);
         return getDevStudioRepository().save(devStudio);
     }
@@ -182,7 +182,7 @@ privileged aspect DevStudioServiceImpl_Roo_Service_Impl {
      */
     @Transactional
     public DevStudio DevStudioServiceImpl.removeFromGames(DevStudio devStudio, Iterable<Long> gamesToRemove) {
-        List<Games> games = getGamesService().findAll(gamesToRemove);
+        List<Game> games = getGameService().findAll(gamesToRemove);
         devStudio.removeFromGames(games);
         return getDevStudioRepository().save(devStudio);
     }
@@ -196,15 +196,15 @@ privileged aspect DevStudioServiceImpl_Roo_Service_Impl {
      */
     @Transactional
     public DevStudio DevStudioServiceImpl.setDevelopers(DevStudio devStudio, Iterable<Long> developers) {
-        List<Developers> items = getDevelopersService().findAll(developers);
-        Set<Developers> currents = devStudio.getDevelopers();
-        Set<Developers> toRemove = new HashSet<Developers>();
-        for (Iterator<Developers> iterator = currents.iterator(); iterator.hasNext();) {
-            Developers nextDevelopers = iterator.next();
-            if (items.contains(nextDevelopers)) {
-                items.remove(nextDevelopers);
+        List<Developer> items = getDeveloperService().findAll(developers);
+        Set<Developer> currents = devStudio.getDevelopers();
+        Set<Developer> toRemove = new HashSet<Developer>();
+        for (Iterator<Developer> iterator = currents.iterator(); iterator.hasNext();) {
+            Developer nextDeveloper = iterator.next();
+            if (items.contains(nextDeveloper)) {
+                items.remove(nextDeveloper);
             } else {
-                toRemove.add(nextDevelopers);
+                toRemove.add(nextDeveloper);
             }
         }
         devStudio.removeFromDevelopers(toRemove);
@@ -224,15 +224,15 @@ privileged aspect DevStudioServiceImpl_Roo_Service_Impl {
      */
     @Transactional
     public DevStudio DevStudioServiceImpl.setGames(DevStudio devStudio, Iterable<Long> games) {
-        List<Games> items = getGamesService().findAll(games);
-        Set<Games> currents = devStudio.getGames();
-        Set<Games> toRemove = new HashSet<Games>();
-        for (Iterator<Games> iterator = currents.iterator(); iterator.hasNext();) {
-            Games nextGames = iterator.next();
-            if (items.contains(nextGames)) {
-                items.remove(nextGames);
+        List<Game> items = getGameService().findAll(games);
+        Set<Game> currents = devStudio.getGames();
+        Set<Game> toRemove = new HashSet<Game>();
+        for (Iterator<Game> iterator = currents.iterator(); iterator.hasNext();) {
+            Game nextGame = iterator.next();
+            if (items.contains(nextGame)) {
+                items.remove(nextGame);
             } else {
-                toRemove.add(nextGames);
+                toRemove.add(nextGame);
             }
         }
         devStudio.removeFromGames(toRemove);
@@ -250,18 +250,18 @@ privileged aspect DevStudioServiceImpl_Roo_Service_Impl {
      */
     @Transactional
     public void DevStudioServiceImpl.delete(DevStudio devStudio) {
-        // Clear bidirectional many-to-one child relationship with Publishers
-        if (devStudio.getPublishers() != null) {
-            devStudio.getPublishers().getDev_studios().remove(devStudio);
+        // Clear bidirectional many-to-one child relationship with Publisher
+        if (devStudio.getPublisher() != null) {
+            devStudio.getPublisher().getDev_studios().remove(devStudio);
         }
         
-        // Clear bidirectional one-to-many parent relationship with Developers
-        for (Developers item : devStudio.getDevelopers()) {
+        // Clear bidirectional one-to-many parent relationship with Developer
+        for (Developer item : devStudio.getDevelopers()) {
             item.setDevstudio(null);
         }
         
-        // Clear bidirectional one-to-many parent relationship with Games
-        for (Games item : devStudio.getGames()) {
+        // Clear bidirectional one-to-many parent relationship with Game
+        for (Game item : devStudio.getGames()) {
             item.setDevstudio(null);
         }
         
@@ -375,23 +375,23 @@ privileged aspect DevStudioServiceImpl_Roo_Service_Impl {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param publishers
+     * @param publisher
      * @param globalSearch
      * @param pageable
      * @return Page
      */
-    public Page<DevStudio> DevStudioServiceImpl.findByPublishers(Publishers publishers, GlobalSearch globalSearch, Pageable pageable) {
-        return getDevStudioRepository().findByPublishers(publishers, globalSearch, pageable);
+    public Page<DevStudio> DevStudioServiceImpl.findByPublisher(Publisher publisher, GlobalSearch globalSearch, Pageable pageable) {
+        return getDevStudioRepository().findByPublisher(publisher, globalSearch, pageable);
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param publishers
+     * @param publisher
      * @return Long
      */
-    public long DevStudioServiceImpl.countByPublishers(Publishers publishers) {
-        return getDevStudioRepository().countByPublishers(publishers);
+    public long DevStudioServiceImpl.countByPublisher(Publisher publisher) {
+        return getDevStudioRepository().countByPublisher(publisher);
     }
     
     /**

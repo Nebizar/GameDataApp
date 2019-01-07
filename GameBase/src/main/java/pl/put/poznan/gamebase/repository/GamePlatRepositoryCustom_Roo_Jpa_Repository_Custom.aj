@@ -8,8 +8,8 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import pl.put.poznan.gamebase.repository.GamePlatRepositoryCustom;
+import pl.put.poznan.gamebase.structures.Game;
 import pl.put.poznan.gamebase.structures.GamePlat;
-import pl.put.poznan.gamebase.structures.Games;
 import pl.put.poznan.gamebase.structures.Platform;
 
 privileged aspect GamePlatRepositoryCustom_Roo_Jpa_Repository_Custom {
@@ -17,12 +17,12 @@ privileged aspect GamePlatRepositoryCustom_Roo_Jpa_Repository_Custom {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param games
+     * @param game
      * @param globalSearch
      * @param pageable
      * @return Page
      */
-    public abstract Page<GamePlat> GamePlatRepositoryCustom.findByGames(Games games, GlobalSearch globalSearch, Pageable pageable);
+    public abstract Page<GamePlat> GamePlatRepositoryCustom.findByGame(Game game, GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation

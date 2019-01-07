@@ -1,0 +1,22 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="platforms-detailModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('GamesItemPlatformsThymeleafController')}">
+    <table id="platforms-detail-table-items-to-remove-batch" data-parent-table="game-entity-table" data-data-parent-id="${game != null ? game.id : ''}" data-data-load-url="${collectionLink.to('datatablesByIdsIn').with('game', '_PARENTID_')}">
+      <thead>
+        <tr>
+              <th data-data="game" data-th-text="#{label_game_platforms_game}">game</th>
+              <th data-data="price" data-th-text="#{label_game_platforms_price}">price</th>
+              <th data-data="sales" data-th-text="#{label_game_platforms_sales}">sales</th>
+              <th data-data="platform" data-th-text="#{label_game_platforms_platform}">platform</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+              <td>game</td>
+              <td>price</td>
+              <td>sales</td>
+              <td>platform</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

@@ -9,7 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import pl.put.poznan.gamebase.service.api.DevStudioService;
 import pl.put.poznan.gamebase.structures.DevStudio;
-import pl.put.poznan.gamebase.structures.Publishers;
+import pl.put.poznan.gamebase.structures.Publisher;
 
 privileged aspect DevStudioService_Roo_Service {
     
@@ -157,19 +157,19 @@ privileged aspect DevStudioService_Roo_Service {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param publishers
+     * @param publisher
      * @param globalSearch
      * @param pageable
      * @return Page
      */
-    public abstract Page<DevStudio> DevStudioService.findByPublishers(Publishers publishers, GlobalSearch globalSearch, Pageable pageable);
+    public abstract Page<DevStudio> DevStudioService.findByPublisher(Publisher publisher, GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param publishers
+     * @param publisher
      * @return Long
      */
-    public abstract long DevStudioService.countByPublishers(Publishers publishers);
+    public abstract long DevStudioService.countByPublisher(Publisher publisher);
     
 }

@@ -53,13 +53,13 @@ public class Reviewer {
      *
      */
     @NotNull
-    private Boolean crit;
+    private Boolean critic;
 
     /**
      * TODO Auto-generated attribute documentation
      *
      */
-    private String af;
+    private String affility;
 
     /**
      * TODO Auto-generated attribute documentation

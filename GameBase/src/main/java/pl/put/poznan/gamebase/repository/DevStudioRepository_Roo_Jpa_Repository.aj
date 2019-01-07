@@ -5,7 +5,7 @@ package pl.put.poznan.gamebase.repository;
 
 import org.springframework.transaction.annotation.Transactional;
 import pl.put.poznan.gamebase.repository.DevStudioRepository;
-import pl.put.poznan.gamebase.structures.Publishers;
+import pl.put.poznan.gamebase.structures.Publisher;
 
 privileged aspect DevStudioRepository_Roo_Jpa_Repository {
     
@@ -14,9 +14,9 @@ privileged aspect DevStudioRepository_Roo_Jpa_Repository {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param publishers
+     * @param publisher
      * @return Long
      */
-    public abstract long DevStudioRepository.countByPublishers(Publishers publishers);
+    public abstract long DevStudioRepository.countByPublisher(Publisher publisher);
     
 }

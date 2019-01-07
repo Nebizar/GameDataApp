@@ -20,7 +20,7 @@ import org.springframework.format.annotation.NumberFormat;
  */
 @RooJavaBean
 @RooToString
-@RooJpaEntity(entityFormatExpression = "#{ID}, #{game}")
+@RooJpaEntity(entityFormatExpression = "#{game}")
 @RooEquals(isJpaEntity = true)
 public class Review {
 
@@ -93,5 +93,5 @@ public class Review {
      */
     @ManyToOne(fetch = FetchType.LAZY)
     @EntityFormat
-    private Games games;
+    private Game game;
 }

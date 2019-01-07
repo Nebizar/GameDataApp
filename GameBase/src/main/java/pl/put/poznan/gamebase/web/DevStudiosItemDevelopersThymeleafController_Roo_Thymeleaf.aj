@@ -39,9 +39,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import pl.put.poznan.gamebase.service.api.DevStudioService;
-import pl.put.poznan.gamebase.service.api.DevelopersService;
+import pl.put.poznan.gamebase.service.api.DeveloperService;
 import pl.put.poznan.gamebase.structures.DevStudio;
-import pl.put.poznan.gamebase.structures.Developers;
+import pl.put.poznan.gamebase.structures.Developer;
 import pl.put.poznan.gamebase.web.DevStudiosCollectionThymeleafController;
 import pl.put.poznan.gamebase.web.DevStudiosCollectionThymeleafLinkFactory;
 import pl.put.poznan.gamebase.web.DevStudiosItemDevelopersThymeleafController;
@@ -62,7 +62,7 @@ privileged aspect DevStudiosItemDevelopersThymeleafController_Roo_Thymeleaf {
      * TODO Auto-generated attribute documentation
      * 
      */
-    private DevelopersService DevStudiosItemDevelopersThymeleafController.developersService;
+    private DeveloperService DevStudiosItemDevelopersThymeleafController.developerService;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -86,15 +86,15 @@ privileged aspect DevStudiosItemDevelopersThymeleafController_Roo_Thymeleaf {
      * TODO Auto-generated constructor documentation
      * 
      * @param devStudioService
-     * @param developersService
+     * @param developerService
      * @param conversionService
      * @param messageSource
      * @param linkBuilder
      */
     @Autowired
-    public DevStudiosItemDevelopersThymeleafController.new(DevStudioService devStudioService, DevelopersService developersService, ConversionService conversionService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
+    public DevStudiosItemDevelopersThymeleafController.new(DevStudioService devStudioService, DeveloperService developerService, ConversionService conversionService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
         setDevStudioService(devStudioService);
-        setDevelopersService(developersService);
+        setDeveloperService(developerService);
         setConversionService(conversionService);
         setMessageSource(messageSource);
         setCollectionLink(linkBuilder.of(DevStudiosCollectionThymeleafController.class));
@@ -121,19 +121,19 @@ privileged aspect DevStudiosItemDevelopersThymeleafController_Roo_Thymeleaf {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @return DevelopersService
+     * @return DeveloperService
      */
-    public DevelopersService DevStudiosItemDevelopersThymeleafController.getDevelopersService() {
-        return developersService;
+    public DeveloperService DevStudiosItemDevelopersThymeleafController.getDeveloperService() {
+        return developerService;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param developersService
+     * @param developerService
      */
-    public void DevStudiosItemDevelopersThymeleafController.setDevelopersService(DevelopersService developersService) {
-        this.developersService = developersService;
+    public void DevStudiosItemDevelopersThymeleafController.setDeveloperService(DeveloperService developerService) {
+        this.developerService = developerService;
     }
     
     /**
@@ -244,11 +244,11 @@ privileged aspect DevStudiosItemDevelopersThymeleafController_Roo_Thymeleaf {
      */
     @GetMapping(name = "datatables", produces = Datatables.MEDIA_TYPE, value = "/dt")
     @ResponseBody
-    public ResponseEntity<ConvertedDatatablesData<Developers>> DevStudiosItemDevelopersThymeleafController.datatables(@ModelAttribute DevStudio devstudio, DatatablesColumns datatablesColumns, GlobalSearch search, DatatablesPageable pageable, @RequestParam("draw") Integer draw) {
+    public ResponseEntity<ConvertedDatatablesData<Developer>> DevStudiosItemDevelopersThymeleafController.datatables(@ModelAttribute DevStudio devstudio, DatatablesColumns datatablesColumns, GlobalSearch search, DatatablesPageable pageable, @RequestParam("draw") Integer draw) {
         
-        Page<Developers> developers = getDevelopersService().findByDevstudio(devstudio, search, pageable);
-        long totalDevelopersCount = getDevelopersService().countByDevstudio(devstudio);
-        ConvertedDatatablesData<Developers> data =  new ConvertedDatatablesData<Developers>(developers, totalDevelopersCount, draw, getConversionService(), datatablesColumns);
+        Page<Developer> developers = getDeveloperService().findByDevstudio(devstudio, search, pageable);
+        long totalDevelopersCount = getDeveloperService().countByDevstudio(devstudio);
+        ConvertedDatatablesData<Developer> data =  new ConvertedDatatablesData<Developer>(developers, totalDevelopersCount, draw, getConversionService(), datatablesColumns);
         return ResponseEntity.ok(data);
     }
     
@@ -264,11 +264,11 @@ privileged aspect DevStudiosItemDevelopersThymeleafController_Roo_Thymeleaf {
      */
     @GetMapping(name = "datatablesByIdsIn", produces = Datatables.MEDIA_TYPE, value = "/dtByIdsIn")
     @ResponseBody
-    public ResponseEntity<ConvertedDatatablesData<Developers>> DevStudiosItemDevelopersThymeleafController.datatablesByIdsIn(@RequestParam("ids") List<Long> ids, DatatablesColumns datatablesColumns, GlobalSearch search, DatatablesPageable pageable, @RequestParam("draw") Integer draw) {
+    public ResponseEntity<ConvertedDatatablesData<Developer>> DevStudiosItemDevelopersThymeleafController.datatablesByIdsIn(@RequestParam("ids") List<Long> ids, DatatablesColumns datatablesColumns, GlobalSearch search, DatatablesPageable pageable, @RequestParam("draw") Integer draw) {
         
-        Page<Developers> developers = getDevelopersService().findAllByIdsIn(ids, search, pageable);
+        Page<Developer> developers = getDeveloperService().findAllByIdsIn(ids, search, pageable);
         long totalDevelopersCount = developers.getTotalElements();
-        ConvertedDatatablesData<Developers> data =  new ConvertedDatatablesData<Developers>(developers, totalDevelopersCount, draw, getConversionService(), datatablesColumns);
+        ConvertedDatatablesData<Developer> data =  new ConvertedDatatablesData<Developer>(developers, totalDevelopersCount, draw, getConversionService(), datatablesColumns);
         return ResponseEntity.ok(data);
     }
     
@@ -282,7 +282,7 @@ privileged aspect DevStudiosItemDevelopersThymeleafController_Roo_Thymeleaf {
     @GetMapping(value = "/create-form", name = "createForm")
     public ModelAndView DevStudiosItemDevelopersThymeleafController.createForm(@ModelAttribute DevStudio devStudio, Model model) {
         populateForm(model);
-        model.addAttribute("developers", new Developers());
+        model.addAttribute("developer", new Developer());
         return new ModelAndView("devstudios/developers/create");
     }
     
@@ -340,9 +340,9 @@ privileged aspect DevStudiosItemDevelopersThymeleafController_Roo_Thymeleaf {
             // Obtain the selected books and include them in the author that will be 
             // included in the view
             if (developers != null) {
-                devStudio.setDevelopers(new HashSet<Developers>(getDevelopersService().findAll(developers)));
+                devStudio.setDevelopers(new HashSet<Developer>(getDeveloperService().findAll(developers)));
             }else{
-                devStudio.setDevelopers(new HashSet<Developers>());
+                devStudio.setDevelopers(new HashSet<Developer>());
             }
             // Reset the version to prevent update
              devStudio.setVersion(version);

@@ -4,10 +4,10 @@
 package pl.put.poznan.gamebase.web;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import pl.put.poznan.gamebase.structures.Games;
+import pl.put.poznan.gamebase.structures.Game;
 import pl.put.poznan.gamebase.structures.Platform;
+import pl.put.poznan.gamebase.web.GameDeserializer;
 import pl.put.poznan.gamebase.web.GamePlatJsonMixin;
-import pl.put.poznan.gamebase.web.GamesDeserializer;
 import pl.put.poznan.gamebase.web.PlatformDeserializer;
 
 privileged aspect GamePlatJsonMixin_Roo_JSONMixin {
@@ -16,8 +16,8 @@ privileged aspect GamePlatJsonMixin_Roo_JSONMixin {
      * TODO Auto-generated attribute documentation
      * 
      */
-    @JsonDeserialize(using = GamesDeserializer.class)
-    private Games GamePlatJsonMixin.games;
+    @JsonDeserialize(using = GameDeserializer.class)
+    private Game GamePlatJsonMixin.game;
     
     /**
      * TODO Auto-generated attribute documentation
@@ -29,19 +29,19 @@ privileged aspect GamePlatJsonMixin_Roo_JSONMixin {
     /**
      * TODO Auto-generated method documentation
      * 
-     * @return Games
+     * @return Game
      */
-    public Games GamePlatJsonMixin.getGames() {
-        return games;
+    public Game GamePlatJsonMixin.getGame() {
+        return game;
     }
     
     /**
      * TODO Auto-generated method documentation
      * 
-     * @param games
+     * @param game
      */
-    public void GamePlatJsonMixin.setGames(Games games) {
-        this.games = games;
+    public void GamePlatJsonMixin.setGame(Game game) {
+        this.game = game;
     }
     
     /**

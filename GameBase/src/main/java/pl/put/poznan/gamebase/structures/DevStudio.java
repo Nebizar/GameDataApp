@@ -86,7 +86,7 @@ public class DevStudio {
     @NotNull
     @OneToMany(cascade = { javax.persistence.CascadeType.MERGE, javax.persistence.CascadeType.PERSIST }, fetch = FetchType.LAZY, mappedBy = "devstudio")
     @RooJpaRelation(type = JpaRelationType.AGGREGATION)
-    private Set<Games> games = new HashSet<Games>();
+    private Set<Game> games = new HashSet<Game>();
 
     /**
      * TODO Auto-generated attribute documentation
@@ -95,7 +95,7 @@ public class DevStudio {
     @NotNull
     @OneToMany(cascade = { javax.persistence.CascadeType.MERGE, javax.persistence.CascadeType.PERSIST }, fetch = FetchType.LAZY, mappedBy = "devstudio")
     @RooJpaRelation(type = JpaRelationType.AGGREGATION)
-    private Set<Developers> developers = new HashSet<Developers>();
+    private Set<Developer> developers = new HashSet<Developer>();
 
     /**
      * TODO Auto-generated attribute documentation
@@ -103,5 +103,5 @@ public class DevStudio {
      */
     @ManyToOne(fetch = FetchType.LAZY)
     @EntityFormat
-    private Publishers publishers;
+    private Publisher publisher;
 }

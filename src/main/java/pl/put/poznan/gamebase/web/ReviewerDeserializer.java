@@ -6,6 +6,12 @@ import org.springframework.core.convert.ConversionService;
 import org.springframework.roo.addon.web.mvc.controller.annotations.config.RooDeserializer;
 import pl.put.poznan.gamebase.service.api.ReviewerService;
 import pl.put.poznan.gamebase.structures.Reviewer;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.ObjectCodec;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonNode;
+import io.springlets.web.NotFoundException;
+import org.springframework.boot.jackson.JsonComponent;
 
 /**
  * = ReviewerDeserializer
@@ -13,6 +19,7 @@ import pl.put.poznan.gamebase.structures.Reviewer;
  *
  */
 @RooDeserializer(entity = Reviewer.class)
+@JsonComponent
 public class ReviewerDeserializer extends JsonObjectDeserializer<Reviewer> {
 
     /**
@@ -37,5 +44,60 @@ public class ReviewerDeserializer extends JsonObjectDeserializer<Reviewer> {
     public ReviewerDeserializer(@Lazy ReviewerService reviewerService, ConversionService conversionService) {
         this.reviewerService = reviewerService;
         this.conversionService = conversionService;
+    }
+
+    /**
+     * TODO Auto-generated method documentation
+     *
+     * @return ReviewerService
+     */
+    public ReviewerService getReviewerService() {
+        return reviewerService;
+    }
+
+    /**
+     * TODO Auto-generated method documentation
+     *
+     * @param reviewerService
+     */
+    public void setReviewerService(ReviewerService reviewerService) {
+        this.reviewerService = reviewerService;
+    }
+
+    /**
+     * TODO Auto-generated method documentation
+     *
+     * @return ConversionService
+     */
+    public ConversionService getConversionService() {
+        return conversionService;
+    }
+
+    /**
+     * TODO Auto-generated method documentation
+     *
+     * @param conversionService
+     */
+    public void setConversionService(ConversionService conversionService) {
+        this.conversionService = conversionService;
+    }
+
+    /**
+     * TODO Auto-generated method documentation
+     *
+     * @param jsonParser
+     * @param context
+     * @param codec
+     * @param tree
+     * @return Reviewer
+     */
+    public Reviewer deserializeObject(JsonParser jsonParser, DeserializationContext context, ObjectCodec codec, JsonNode tree) {
+        String idText = tree.asText();
+        Long id = conversionService.convert(idText, Long.class);
+        Reviewer reviewer = reviewerService.findOne(id);
+        if (reviewer == null) {
+            throw new NotFoundException("Reviewer not found");
+        }
+        return reviewer;
     }
 }

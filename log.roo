@@ -77,3 +77,5 @@ web mvc templates setup --type THYMELEAF
 web mvc finder --all --responseType THYMELEAF
 // [failed] push-in --all --force
 // [failed] script --file springScript.roo
+// Spring Roo 2.0.0.RELEASE [rev 4a2e9f1] log opened at 2019-01-08 18:03:52
+push-in --all --force

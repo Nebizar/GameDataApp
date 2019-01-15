@@ -56,7 +56,27 @@ INSERT INTO GAME_PLAT(id, price, sales, game_id, platform_id) VALUES (nextval('g
 INSERT INTO GAME_PLAT(id, price, sales, game_id, platform_id) VALUES (nextval('gameplat_seq'),79, 13000000, 2, 1);
 INSERT INTO GAME_PLAT(id, price, sales, game_id, platform_id) VALUES (nextval('gameplat_seq'),69, 13000000, 2, 2);
 
+CREATE OR REPLACE FUNCTION get_newest_game(id_dev bigint)
+RETURNS VARCHAR
+AS '
+BEGIN
+DECLARE mini integer;
+DECLARE wynik VARCHAR;
+BEGIN
+  mini := 0;
+	CALL min_lat(id_dev, mini);
+	SELECT title INTO wynik FROM GAME WHERE devstudio_id = id_dev AND (EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM rel_date)) = mini;
+  RETURN wynik;
+END;
+END;'
+LANGUAGE 'plpgsql';
 
+CREATE OR REPLACE PROCEDURE min_lat(IN id_dev bigint, INOUT mini integer)
+AS '
+BEGIN
+SELECT MIN((EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM rel_date))) INTO mini FROM GAME WHERE devstudio_id=id_dev;
+END;'
+LANGUAGE plpgsql;
 
 
 

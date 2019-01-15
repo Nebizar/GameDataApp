@@ -3,22 +3,19 @@ import org.springframework.roo.addon.javabean.annotations.RooEquals;
 import org.springframework.roo.addon.javabean.annotations.RooJavaBean;
 import org.springframework.roo.addon.javabean.annotations.RooToString;
 import org.springframework.roo.addon.jpa.annotations.entity.RooJpaEntity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Version;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.NumberFormat;
 import java.util.HashSet;
 import java.util.Set;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
+
 import org.springframework.roo.addon.jpa.annotations.entity.JpaRelationType;
 import org.springframework.roo.addon.jpa.annotations.entity.RooJpaRelation;
 import io.springlets.format.EntityFormat;
-import javax.persistence.ManyToOne;
+
 import java.util.Objects;
-import javax.persistence.Entity;
+
 import org.springframework.util.Assert;
 
 /**
@@ -39,7 +36,8 @@ public class DevStudio {
      *
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "devStudio_generator")
+    @SequenceGenerator(name="devStudio_generator", sequenceName = "devStudio_seq", allocationSize = 1)
     private Long id;
 
     /**
@@ -106,6 +104,7 @@ public class DevStudio {
      * TODO Auto-generated attribute documentation
      *
      */
+    @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     @EntityFormat
     private Publisher publisher;

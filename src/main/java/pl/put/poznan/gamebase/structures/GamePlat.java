@@ -3,16 +3,12 @@ import org.springframework.roo.addon.javabean.annotations.RooEquals;
 import org.springframework.roo.addon.javabean.annotations.RooJavaBean;
 import org.springframework.roo.addon.javabean.annotations.RooToString;
 import org.springframework.roo.addon.jpa.annotations.entity.RooJpaEntity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Version;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import io.springlets.format.EntityFormat;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToOne;
 import org.springframework.format.annotation.NumberFormat;
 import java.util.Objects;
-import javax.persistence.Entity;
 
 /**
  * = GamePlat
@@ -32,7 +28,8 @@ public class GamePlat {
      *
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "gamePlat_generator")
+    @SequenceGenerator(name="gamePlat_generator", sequenceName = "gamePlat_seq", allocationSize = 1)
     private Long id;
 
     /**
@@ -46,6 +43,7 @@ public class GamePlat {
      * TODO Auto-generated attribute documentation
      *
      */
+    @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     @EntityFormat
     private Game game;
@@ -68,6 +66,7 @@ public class GamePlat {
      * TODO Auto-generated attribute documentation
      *
      */
+    @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     @EntityFormat
     private Platform platform;

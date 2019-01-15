@@ -3,17 +3,14 @@ import org.springframework.roo.addon.javabean.annotations.RooEquals;
 import org.springframework.roo.addon.javabean.annotations.RooJavaBean;
 import org.springframework.roo.addon.javabean.annotations.RooToString;
 import org.springframework.roo.addon.jpa.annotations.entity.RooJpaEntity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Version;
+
+import javax.persistence.*;
+
 import io.springlets.format.EntityFormat;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToOne;
+
 import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.NumberFormat;
 import java.util.Objects;
-import javax.persistence.Entity;
 
 /**
  * = Developer
@@ -33,7 +30,8 @@ public class Developer {
      *
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "developer_generator")
+    @SequenceGenerator(name="developer_generator", sequenceName = "developer_seq", allocationSize = 1)
     private Long id;
 
     /**
@@ -47,6 +45,7 @@ public class Developer {
      * TODO Auto-generated attribute documentation
      *
      */
+    @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     @EntityFormat
     private DevStudio devstudio;

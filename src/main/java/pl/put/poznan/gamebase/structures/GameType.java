@@ -18,6 +18,7 @@ import io.springlets.format.EntityFormat;
 import java.util.Objects;
 import javax.persistence.Entity;
 import org.springframework.util.Assert;
+import javax.persistence.*;
 
 /**
  * = GameType
@@ -26,10 +27,10 @@ import org.springframework.util.Assert;
  */
 @RooJavaBean
 @RooToString
-@RooJpaEntity
+@RooJpaEntity(entityFormatExpression = "#{name}")
 @RooEquals(isJpaEntity = true)
 @Entity
-@EntityFormat
+@EntityFormat("#{name}")
 public class GameType {
 
     /**
@@ -37,7 +38,8 @@ public class GameType {
      *
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "type_generator")
+    @SequenceGenerator(name="type_generator", sequenceName = "type_seq", allocationSize = 1)
     private Long id;
 
     /**

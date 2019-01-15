@@ -22,6 +22,19 @@ BEGIN
 END; '
 LANGUAGE 'plpgsql';
 
+INSERT INTO GAME_TYPE(id, description, name) VALUES (nextval('type_seq'), 'strategy game', 'RTS');
+INSERT INTO GAME_TYPE(id, description, name) VALUES (nextval('type_seq'), 'shooting in first person view', 'FPS');
+INSERT INTO GAME_TYPE(id, description, name) VALUES (nextval('type_seq'), 'shooting in third person view', 'TPS');
+INSERT INTO GAME_TYPE(id, description, name) VALUES (nextval('type_seq'), 'jump on platforms', 'platformer');
+INSERT INTO GAME_TYPE(id, description, name) VALUES (nextval('type_seq'), 'broadest type', 'action-adventure');
+
+INSERT INTO PLATFORM(id, name, premiere, producent, sales) VALUES (nextval('platform_seq'), 'Xbox One', '2015-04-03', 'Microsoft', 1234567);
+INSERT INTO PLATFORM(id, name, premiere, producent, sales) VALUES (nextval('platform_seq'), 'Playstation 4', '2015-04-03', 'Sony', 2345678);
+
+INSERT INTO PUBLISHER(id, main_loc, name, value_of ) VALUES (nextval('publisher_seq'), 'Boston', 'Activision', 1);
+INSERT INTO PUBLISHER(id, main_loc, name, value_of ) VALUES (nextval('publisher_seq'), 'Texas', 'Bethesda', 76);
+
+
 CREATE SEQUENCE GAMES_ID
 MINVALUE 1
 START WITH 1

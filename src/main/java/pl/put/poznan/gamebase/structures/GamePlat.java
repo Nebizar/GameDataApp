@@ -28,8 +28,8 @@ public class GamePlat {
      *
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "gamePlat_generator")
-    @SequenceGenerator(name="gamePlat_generator", sequenceName = "gamePlat_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "gameplat_generator")
+    @SequenceGenerator(name="gameplat_generator", sequenceName = "gameplat_seq", allocationSize = 1)
     private Long id;
 
     /**

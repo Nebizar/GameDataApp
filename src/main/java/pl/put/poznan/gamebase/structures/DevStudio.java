@@ -36,8 +36,8 @@ public class DevStudio {
      *
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "devStudio_generator")
-    @SequenceGenerator(name="devStudio_generator", sequenceName = "devStudio_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "devstudio_generator")
+    @SequenceGenerator(name="devstudio_generator", sequenceName = "devstudio_seq", allocationSize = 1)
     private Long id;
 
     /**
@@ -104,7 +104,6 @@ public class DevStudio {
      * TODO Auto-generated attribute documentation
      *
      */
-    @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     @EntityFormat
     private Publisher publisher;

@@ -206,7 +206,7 @@ public class PlatformsItemThymeleafController implements ConcurrencyManager<Plat
         StoredProcedureQuery query = this.em.createNamedStoredProcedureQuery("functionAvarage");
         query.setParameter("platform", platform.getId());
 
-        model.addAttribute("AvarageGamePrice", query.getSingleResult());
+        model.addAttribute("avaragegameprice", query.getSingleResult());
 
         return new ModelAndView("platforms/show");
     }

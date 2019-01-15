@@ -28,6 +28,10 @@ import org.springframework.util.Assert;
 @RooEquals(isJpaEntity = true)
 @Entity
 @EntityFormat("#{name}")
+@Table(name = "publisher", uniqueConstraints={
+        @UniqueConstraint(columnNames = {"name"}),},
+indexes = {
+        @Index(name = "publisher_id",  columnList="id", unique = true)})
 public class Publisher {
 
     /**

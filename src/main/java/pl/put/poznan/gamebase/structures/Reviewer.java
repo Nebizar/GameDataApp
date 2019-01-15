@@ -27,6 +27,10 @@ import org.springframework.util.Assert;
 @RooEquals(isJpaEntity = true)
 @Entity
 @EntityFormat("#{nick}")
+@Table(name = "reviewer", uniqueConstraints={
+        @UniqueConstraint(columnNames = {"nick"}),},
+indexes = {
+        @Index(name = "reviewer_id",  columnList="id", unique = true)})
 public class Reviewer {
 
     /**

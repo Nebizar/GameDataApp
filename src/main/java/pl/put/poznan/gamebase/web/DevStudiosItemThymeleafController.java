@@ -34,6 +34,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponents;
 import pl.put.poznan.gamebase.service.api.DevStudioService;
+import javax.persistence.EntityManager;
+import javax.persistence.StoredProcedureQuery;
 
 /**
  * = DevStudiosItemThymeleafController
@@ -75,6 +77,8 @@ public class DevStudiosItemThymeleafController implements ConcurrencyManager<Dev
      *
      */
     private MethodLinkBuilderFactory<DevStudiosCollectionThymeleafController> collectionLink;
+    
+    private EntityManager em;
 
     /**
      * TODO Auto-generated constructor documentation
@@ -84,11 +88,12 @@ public class DevStudiosItemThymeleafController implements ConcurrencyManager<Dev
      * @param linkBuilder
      */
     @Autowired
-    public DevStudiosItemThymeleafController(DevStudioService devStudioService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
+    public DevStudiosItemThymeleafController(DevStudioService devStudioService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder, EntityManager em) {
         setDevStudioService(devStudioService);
         setMessageSource(messageSource);
         setItemLink(linkBuilder.of(DevStudiosItemThymeleafController.class));
         setCollectionLink(linkBuilder.of(DevStudiosCollectionThymeleafController.class));
+        this.em = em;
     }
 
     /**
@@ -196,6 +201,12 @@ public class DevStudiosItemThymeleafController implements ConcurrencyManager<Dev
     @GetMapping(name = "show")
     public ModelAndView show(@ModelAttribute DevStudio devStudio, Model model) {
         model.addAttribute("devStudio", devStudio);
+        
+        StoredProcedureQuery query = this.em.createNamedStoredProcedureQuery("functionNewGame");
+        query.setParameter("id_dev", devStudio.getId());
+
+        model.addAttribute("get_newest_game", query.getSingleResult());
+        
         return new ModelAndView("devstudios/show");
     }
 

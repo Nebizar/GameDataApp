@@ -21,6 +21,7 @@ import pl.put.poznan.gamebase.structures.DevStudio;
 import pl.put.poznan.gamebase.structures.Developer;
 import pl.put.poznan.gamebase.structures.Game;
 import pl.put.poznan.gamebase.structures.Publisher;
+import javax.persistence.EntityManager;
 
 /**
  * = DevStudioServiceImpl
@@ -49,6 +50,9 @@ public class DevStudioServiceImpl implements DevStudioService {
      *
      */
     private DevStudioRepository devStudioRepository;
+    
+    @Autowired
+    private EntityManager em;
 
     /**
      * TODO Auto-generated constructor documentation

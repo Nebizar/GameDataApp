@@ -27,6 +27,17 @@ import org.springframework.util.Assert;
 @RooToString
 @RooJpaEntity(entityFormatExpression = "#{name}")
 @RooEquals(isJpaEntity = true)
+
+@NamedStoredProcedureQueries({
+    @NamedStoredProcedureQuery(
+            name = "functionNewGame",
+            procedureName = "get_newest_game",
+            parameters = {
+                    @StoredProcedureParameter(name = "devstudio", mode = ParameterMode.IN, type = Long.class)
+            }
+    )
+})
+
 @Entity
 @EntityFormat("#{name}")
 public class DevStudio {

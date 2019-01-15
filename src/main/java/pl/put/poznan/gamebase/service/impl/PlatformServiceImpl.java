@@ -19,6 +19,8 @@ import pl.put.poznan.gamebase.service.api.GamePlatService;
 import pl.put.poznan.gamebase.structures.GamePlat;
 import pl.put.poznan.gamebase.structures.Platform;
 
+import javax.persistence.EntityManager;
+
 /**
  * = PlatformServiceImpl
  TODO Auto-generated class documentation
@@ -40,6 +42,9 @@ public class PlatformServiceImpl implements PlatformService {
      *
      */
     private PlatformRepository platformRepository;
+
+    @Autowired
+    private EntityManager em;
 
     /**
      * TODO Auto-generated constructor documentation

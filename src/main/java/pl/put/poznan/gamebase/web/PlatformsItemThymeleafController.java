@@ -11,6 +11,8 @@ import io.springlets.web.mvc.util.MethodLinkBuilderFactory;
 import io.springlets.web.mvc.util.concurrency.ConcurrencyCallback;
 import io.springlets.web.mvc.util.concurrency.ConcurrencyTemplate;
 import java.util.Locale;
+import javax.persistence.EntityManager;
+import javax.persistence.StoredProcedureQuery;
 import javax.validation.Valid;
 import org.joda.time.format.DateTimeFormat;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,6 +79,8 @@ public class PlatformsItemThymeleafController implements ConcurrencyManager<Plat
      */
     private MethodLinkBuilderFactory<PlatformsCollectionThymeleafController> collectionLink;
 
+    private EntityManager em;
+
     /**
      * TODO Auto-generated constructor documentation
      *
@@ -85,11 +89,12 @@ public class PlatformsItemThymeleafController implements ConcurrencyManager<Plat
      * @param linkBuilder
      */
     @Autowired
-    public PlatformsItemThymeleafController(PlatformService platformService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder) {
+    public PlatformsItemThymeleafController(PlatformService platformService, MessageSource messageSource, ControllerMethodLinkBuilderFactory linkBuilder, EntityManager em) {
         setPlatformService(platformService);
         setMessageSource(messageSource);
         setItemLink(linkBuilder.of(PlatformsItemThymeleafController.class));
         setCollectionLink(linkBuilder.of(PlatformsCollectionThymeleafController.class));
+        this.em = em;
     }
 
     /**
@@ -197,6 +202,12 @@ public class PlatformsItemThymeleafController implements ConcurrencyManager<Plat
     @GetMapping(name = "show")
     public ModelAndView show(@ModelAttribute Platform platform, Model model) {
         model.addAttribute("platform", platform);
+
+        StoredProcedureQuery query = this.em.createNamedStoredProcedureQuery("functionAvarage");
+        query.setParameter("platform", platform.getId());
+
+        model.addAttribute("AvarageGamePrice", query.getSingleResult());
+
         return new ModelAndView("platforms/show");
     }
 

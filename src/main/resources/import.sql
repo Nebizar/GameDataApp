@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION AvaragePriceForPlatform(platform BIGINT)
+CREATE OR REPLACE FUNCTION avaragepriceforplatform(platform BIGINT)
   RETURNS FLOAT 
   AS '
   BEGIN
@@ -13,7 +13,7 @@ END;'
 LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION 
-Sale(INOUT discount FLOAT,platform BIGINT)
+sale(INOUT discount FLOAT,platform BIGINT)
 AS '
 BEGIN
     

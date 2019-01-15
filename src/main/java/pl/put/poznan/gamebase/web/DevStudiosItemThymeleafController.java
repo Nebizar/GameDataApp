@@ -205,7 +205,7 @@ public class DevStudiosItemThymeleafController implements ConcurrencyManager<Dev
         StoredProcedureQuery query = this.em.createNamedStoredProcedureQuery("functionNewGame");
         query.setParameter("id_dev", devStudio.getId());
 
-        model.addAttribute("get_newest_game", query.getSingleResult());
+        model.addAttribute("newestgame", query.getSingleResult());
         
         return new ModelAndView("devstudios/show");
     }

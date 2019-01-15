@@ -40,6 +40,10 @@ import org.springframework.util.Assert;
 
 @Entity
 @EntityFormat("#{name}")
+@Table(name = "dev_studio", uniqueConstraints={
+        @UniqueConstraint(columnNames = {"name"}),},
+indexes = {
+        @Index(name = "devstudio_id",  columnList="id", unique = true)})
 public class DevStudio {
 
     /**

@@ -33,7 +33,7 @@ import org.springframework.util.Assert;
             name = "functionNewGame",
             procedureName = "get_newest_game",
             parameters = {
-                    @StoredProcedureParameter(name = "devstudio", mode = ParameterMode.IN, type = Long.class)
+                    @StoredProcedureParameter(name = "id_dev", mode = ParameterMode.IN, type = Long.class)
             }
     )
 })
